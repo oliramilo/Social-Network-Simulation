@@ -1,0 +1,13 @@
+F:Daphne:Fred
+F:Velma:Shaggy
+F:Fred:Patrick
+F:Scooby:Shaggy
+F:Spongebob:Patrick
+F:Mr.Krabs:Velma
+F:Patrick:Shaggy
+F:Mr.Krabs:Shaggy
+F:Shaggy:Mr.Krabs
+P:Shaggy:Would you do it for a.... Scooby snack?
+P:Mr.Krabs:I Like Money
+P:Spongebob:I'm ready promotion!
+P:Spongebob:Time to flip some patties!
