@@ -528,10 +528,12 @@ public class Network
         }
         this.userList = list;
     }
-    public void updatePosts()
+
+    public void updatePosts(Person p)
     {
         DSALinkedList update = new DSALinkedList();
         Post post = null;
+        if(p.getPos)
         for(Object iter:postList)
         {
             post = (Post)iter;
