@@ -398,7 +398,7 @@ public class Network
         return toQueue;
     }
 
-    /*public DSAQueue timeStep(int k,int n)
+    public DSAQueue timeStep(int k,int n)
     {
         update();
         DSAQueue orderList = new Queue();
@@ -422,11 +422,11 @@ public class Network
             }        
         }
         return orderList;
-    }*/
+    }
 
     //IDK What kind of timeStep they want to do, uncomment the function above
     //and comment this one out to test the other approach
-    public DSAQueue timeStep(int k,int n)
+    /*public DSAQueue timeStep(int k,int n)
     {
         update();
         DSAQueue orderList = new Queue();
@@ -443,7 +443,7 @@ public class Network
             }
         }
         return orderList;
-    }
+    }*/
 
     private DSAQueue breadthFirstSearch(Person pFollow, Post pPost, DSAQueue event, int k, int n)
     {
@@ -513,7 +513,7 @@ public class Network
     {
         updateTable();
         updateList();
-        updatePosts();
+       // updatePosts();
     }
 
     public void updateList()
@@ -533,13 +533,17 @@ public class Network
     {
         DSALinkedList update = new DSALinkedList();
         Post post = null;
-        if(p.getPos)
-        for(Object iter:postList)
+        if(!p.getPosts().isEmpty())
         {
-            post = (Post)iter;
-            if(!post.isDeleted())
+
+        
+            for(Object iter:postList)
             {
-                update.insertLast(post);
+                post = (Post)iter;
+                if(!post.isDeleted())
+                {
+                    update.insertLast(post);
+                }
             }
         }
         this.postList = update;

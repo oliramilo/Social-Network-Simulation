@@ -40,11 +40,11 @@ public class TestNetwork
         {
             e.printStackTrace();
         }*/
-        test(100,100);
+        //test(100,100);
         //testOrder();
        // testOrder2();
         //testTimeStep(100, 100);
-        /*long testRun[] = new long[10];
+        long testRun[] = new long[10];
         for(int i =0;i<10;i++)
         {
             testRun[i] = runTimeTest(100, 100);
@@ -59,7 +59,7 @@ public class TestNetwork
         {
             avg+=testRun[i];
         }
-        System.out.print("Average is " + (avg/10));*/
+        System.out.print("Average is " + (avg/10));
     }
 
 
