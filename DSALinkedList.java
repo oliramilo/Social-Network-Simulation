@@ -57,8 +57,10 @@ class DSALinkedList implements Iterable, Serializable
     private class DSALinkedListIterator implements Iterator
     {
         private Node iterNext;
+        private Node prev;
         public DSALinkedListIterator(DSALinkedList list) {
             iterNext = list.head;
+            prev = iterNext.getPrev();
         }
 
         //Check if there is a next item on list
@@ -69,26 +71,38 @@ class DSALinkedList implements Iterable, Serializable
         //Get current item, iterate to the next item
         public Object next() {
             Object curVal = null;
-            if(iterNext != null){
+            if(iterNext != null)
+            {
+                prev = iterNext;
                 curVal = iterNext.getElement();
                 iterNext = iterNext.getNext();
             }
-            else {
+            else 
+            {
                 System.out.println("No more items in the list");
             }
             return curVal;
         }
         
-        public void remove() {
+        public void remove() 
+        {
             if(iterNext == null)
             {
-                Node temp = iterNext;
-                iterNext.getPrev().setNext(iterNext.getNext());
+                System.out.println("Invalid operation for empty list");
+            }
+            else if(iterNext.getNext() == null)
+            {
+                iterNext.getPrev().setNext(null);
                 iterNext = null;
+            }
+            else if(prev.getPrev() == null)
+            {
+                iterNext.getPrev() = null;
             }
             else
             {
-                throw new IllegalArgumentException("Cannot remove from empty list");
+                iterNext.setPrev(prev.getPrev());
+                prev.getPrev().setNext(iterNext);
             }
         }
     }

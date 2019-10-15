@@ -57,34 +57,44 @@ public class Person
 
     public void unFollow(Person p)
     {
-        if(!following.isEmpty())
+        if(following.isEmpty())
+        {
+            System.out.println(name + " has no followers...");
+        }
+        else
         {
             boolean done = true;
             Iterator it = following.iterator();
             while(it.hasNext() && done)
             {
-                if((Person)it.next().equals(p))
+                if(((Person)it.next()).equals(p))
                 {
                     it.remove();
                     done = false;
                 }
             }
         }
-        else if(done)
-        {
-            System.out.println("Person cannot be found");
-        }
     }
 
     public void unFollowed(Person p)
     {
-        if(!followers.isEmpty())
+
+        if(followers.isEmpty())
         {
-            
+            System.out.println(name + " Isn't following " + p.getName());
         }
         else
         {
-
+            boolean done = true;
+            Iterator it = following.iterator();
+            while(it.hasNext() && done)
+            {
+                if(((Person)it.next()).equals(p))
+                {
+                    it.remove();
+                    done = false;
+                }
+            }
         }
     }
 

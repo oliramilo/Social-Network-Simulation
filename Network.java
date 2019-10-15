@@ -166,7 +166,13 @@ public class Network
 
     public void removeConnection(String name1,String name2)
     {
-
+        if(userExist(name1) && userExist(name2))
+        {
+            Person p = Users.get(name1);
+            Person p2 = Users.get(name2);
+            p.unFollow(p2);
+            p.
+        }
     }
 
     private void updateTable()
