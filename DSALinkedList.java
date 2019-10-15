@@ -86,24 +86,7 @@ class DSALinkedList implements Iterable, Serializable
         
         public void remove() 
         {
-            if(iterNext == null)
-            {
-                System.out.println("Invalid operation for empty list");
-            }
-            else if(iterNext.getNext() == null)
-            {
-                iterNext.getPrev().setNext(null);
-                iterNext = null;
-            }
-            else if(prev.getPrev() == null)
-            {
-                iterNext.getPrev() = null;
-            }
-            else
-            {
-                iterNext.setPrev(prev.getPrev());
-                prev.getPrev().setNext(iterNext);
-            }
+            throw new UnsupportedOperationException("Operation remove unsupported");
         }
     }
 
@@ -283,6 +266,45 @@ class DSALinkedList implements Iterable, Serializable
         return loadFile(file);
     }
 
+    public void remove(Object e)
+    {
+        Node iter = head;
+        if(!isEmpty())
+        {
+            boolean found = true;
+            //Checkif we are removing the head
+            if(iter.getElement().equals(e))
+            {
+                head = head.getNext();
+                head.setPrev(null);
+                found = false;
+            }
+            else
+            {
+                while(found && iter != null)
+                {
+                    //Check if we are removing the tail
+                    if(iter.getElement().equals(tail.getElement()))
+                    {
+                        tail = tail.getPrev();
+                        tail.setNext(null);
+                        found = false;
+                    }
+                    else if(iter.getElement().equals(e))
+                    {
+                        found = false;
+                        iter.getNext().setPrev(iter.getPrev());
+                        iter.getPrev().setNext(iter.getNext());
+                    }
+                    iter = iter.getNext();
+                }
+            }
+            if(found)
+            {
+                System.out.println("Node not found");
+            }
+        }
+    }
     private DSALinkedList loadFile(String fileName)
     {
         FileInputStream strm;
@@ -312,5 +334,4 @@ class DSALinkedList implements Iterable, Serializable
     {
         return this.size;
     }
-
 }

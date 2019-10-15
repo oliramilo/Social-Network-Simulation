@@ -9,18 +9,13 @@ class testRemove
         {
             list.insertLast(arr[i]);
         }
+        list.remove("Yo");
+        list.remove("what");
+        list.remove("Hello");
         Iterator it = list.iterator();
         while(it.hasNext())
         {
-            if(it.next().equals("what"))
-            {
-                it.remove();
-            }
-        }
-        Iterator it2 = list.iterator();
-        while(it2.hasNext())
-        {
-            System.out.println(it2.next());
+            System.out.println(it.next());
         }
     }
 }
