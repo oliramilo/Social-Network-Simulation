@@ -57,10 +57,8 @@ class DSALinkedList implements Iterable, Serializable
     private class DSALinkedListIterator implements Iterator
     {
         private Node iterNext;
-        private Node prev;
         public DSALinkedListIterator(DSALinkedList list) {
             iterNext = list.head;
-            prev = iterNext.getPrev();
         }
 
         //Check if there is a next item on list
@@ -73,7 +71,6 @@ class DSALinkedList implements Iterable, Serializable
             Object curVal = null;
             if(iterNext != null)
             {
-                prev = iterNext;
                 curVal = iterNext.getElement();
                 iterNext = iterNext.getNext();
             }

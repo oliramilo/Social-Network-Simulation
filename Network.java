@@ -168,10 +168,10 @@ public class Network
     {
         if(userExist(name1) && userExist(name2))
         {
-            Person p = Users.get(name1);
-            Person p2 = Users.get(name2);
+            Person p = (Person)Users.get(name1);
+            Person p2 = (Person)Users.get(name2);
             p.unFollow(p2);
-            p.
+            p2.unFollowed(p);
         }
     }
 
