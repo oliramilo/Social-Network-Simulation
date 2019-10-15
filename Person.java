@@ -57,44 +57,26 @@ public class Person
 
     public void unFollow(Person p)
     {
-        if(following.isEmpty())
+        if(!following.isEmpty())
         {
-            System.out.println(name + " has no followers...");
+            following.remove(p);
         }
         else
         {
-            boolean done = true;
-            Iterator it = following.iterator();
-            while(it.hasNext() && done)
-            {
-                if(((Person)it.next()).equals(p))
-                {
-                    it.remove();
-                    done = false;
-                }
-            }
+            throw new IllegalArgumentException( name+" is not following "+p.getName());
         }
     }
 
     public void unFollowed(Person p)
     {
 
-        if(followers.isEmpty())
+        if(!followers.isEmpty())
         {
-            System.out.println(name + " Isn't following " + p.getName());
+            followers.remove(p);
         }
         else
         {
-            boolean done = true;
-            Iterator it = following.iterator();
-            while(it.hasNext() && done)
-            {
-                if(((Person)it.next()).equals(p))
-                {
-                    it.remove();
-                    done = false;
-                }
-            }
+            throw new IllegalArgumentException(p.getName()+ " is not being followed by + "+name);
         }
     }
 
