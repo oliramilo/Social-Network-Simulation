@@ -72,6 +72,7 @@ public class Network
 
         else
         {
+            System.out.println("Users: " + user1 + " cannot follow " + user2);
             throw new IllegalArgumentException("Error occurred: " + Error.USER_ERR);
         }
     }

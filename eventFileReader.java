@@ -33,10 +33,13 @@ public class eventFileReader
         String s[] = line.split(":");
         if(s.length == 1)
         {
+            s[0].trim();
             n.addUser(s[0]);
         }
         else if (s.length == 2)
         {
+            s[0].trim();
+            s[1].trim();
             n.newConnection(s[0],s[1]);
         }
         else if(s.length == 3)

@@ -21,6 +21,12 @@ public class SocialSim
                     prob_foll = Integer.parseInt(args[3]);
                     prob_like = Integer.parseInt(args[4]);
                     System.out.println(prob_foll + " " + prob_like);
+                    Network n = new Network();
+                    eventFileReader.readFile(args[1],n);
+                    eventFileReader.readFile(args[2],n);
+                    System.out.println("Enter file name");
+                    String file = userInterface.fileInput();
+                    n.simulationTimeStep(file,prob_like,prob_foll);
                 }
                 catch(NumberFormatException ex)
                 {
