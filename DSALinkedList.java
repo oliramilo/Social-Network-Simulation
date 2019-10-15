@@ -80,7 +80,16 @@ class DSALinkedList implements Iterable, Serializable
         }
         
         public void remove() {
-            throw new UnsupportedOperationException("No operation for remove");
+            if(iterNext == null)
+            {
+                Node temp = iterNext;
+                iterNext.getPrev().setNext(iterNext.getNext());
+                iterNext = null;
+            }
+            else
+            {
+                throw new IllegalArgumentException("Cannot remove from empty list");
+            }
         }
     }
 

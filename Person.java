@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 //Person represents a vertex in the Network graph
 //Person class stores list of followers,
 //who they're following, posts
@@ -51,6 +53,39 @@ public class Person
     public void setFollowers(DSALinkedList pFollowers)
     {
         this.followers = pFollowers;
+    }
+
+    public void unFollow(Person p)
+    {
+        if(!following.isEmpty())
+        {
+            boolean done = true;
+            Iterator it = following.iterator();
+            while(it.hasNext() && done)
+            {
+                if((Person)it.next().equals(p))
+                {
+                    it.remove();
+                    done = false;
+                }
+            }
+        }
+        else if(done)
+        {
+            System.out.println("Person cannot be found");
+        }
+    }
+
+    public void unFollowed(Person p)
+    {
+        if(!followers.isEmpty())
+        {
+            
+        }
+        else
+        {
+
+        }
     }
 
     public int getPopularity()

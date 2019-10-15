@@ -164,6 +164,11 @@ public class Network
         }
     }
 
+    public void removeConnection(String name1,String name2)
+    {
+
+    }
+
     private void updateTable()
     {
         Person p = null;
