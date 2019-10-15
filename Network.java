@@ -471,7 +471,7 @@ public class Network
             {
                 //Don't need to check if original poster liked the post
                 //as that's already done in timeStep method
-                if(!alreadyLiked(p, pPost))
+                if(!alreadyLiked(p, pPost) && !p.equals(pPost.getOP()))
                 {
                     String e = ("L:"+p.getName() + ":P:" + pPost.getOP().getName() + ":" + pPost.getMessage());
                     System.out.println(e);
