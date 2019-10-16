@@ -1,0 +1,12 @@
+L:Jen:P:Kira:The Garthim attacked my village
+L:Master:P:Kira:The Garthim attacked my village
+F:Master:Kira
+L:Healer:P:Kira:The Garthim attacked my village
+F:Healer:Kira
+L:Aughra:P:Kira:The Garthim attacked my village
+F:Aughra:Kira
+L:Emperor:P:Chamberlain:Trial by stone!
+L:Master:P:Jen:Wings? I don't have wings!
+L:Healer:P:Jen:Wings? I don't have wings!
+L:Aughra:P:Jen:Wings? I don't have wings!
+L:Kira:P:Jen:Wings? I don't have wings!

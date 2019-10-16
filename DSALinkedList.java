@@ -1,3 +1,4 @@
+/*Data structure implemented from the practical workshop */
 import java.io.*;
 import java.util.*;
 
@@ -263,6 +264,8 @@ class DSALinkedList implements Iterable, Serializable
         return loadFile(file);
     }
 
+    /*Added the remove operation, iterates over the linkedlist to find the Node
+      to be removed. Method, implemented for the assignment */
     public void remove(Object e)
     {
         Node iter = head;

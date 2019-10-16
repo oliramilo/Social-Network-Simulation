@@ -1,3 +1,4 @@
+/*Data structure implemented in the practicals */
 import java.io.*;
 class HashTable implements Serializable
 {
@@ -81,20 +82,22 @@ class HashTable implements Serializable
             hashArray[hashKey] = item;
         }
 
-        //Keep a tally of how many items were added into the 
-        //hash table
-        //The load factor in the hash table is checked before
-        //increasing its size, the condition requires a >=60% full array
+        /*Keep a tally of how many items were added into the hash table
+          The load factor in the hash table is checked before increasing 
+          its size, the condition requires a >=60% full array*/
         count++;
         reSize();
     }
+
 
     public void remove(String key)
     {
     
         int hashKey = hashKey(key,hashArray.length);
         int stepSize = stepSize(hashKey);
-        //Key found in initial hash index
+        /*Key found in initial hash index, checks for spaces in the 
+          array if it isn't null and contains marked items deleted or 
+          live objects*/
         if(hashArray[hashKey] != null && hashArray[hashKey].getKey().equals(key) 
                                             && hashArray[hashKey].getState() == true)
         {
@@ -109,8 +112,8 @@ class HashTable implements Serializable
             //Loop until null we land in a null pointer or the item is found
             while(hashArray[hashKey] != null && !found)
             {
-                //The state of the item needs to be checked
-                //If its been deleted or not, key also needs to be compared
+                /*The state of the item needs to be checked
+                  If its been deleted or not, key also needs to be compared*/
                 if(hashArray[hashKey].getState() == true && 
                             hashArray[hashKey].getKey().equals(key))
                 {
@@ -132,7 +135,7 @@ class HashTable implements Serializable
         shrink();
     }
 
-    //Returns the toString content of the item that needs to be found
+    //Returns the object of the item that needs to be found
     public Object get(String key)
     {
         hashItem obj = find(key);
@@ -194,8 +197,8 @@ class HashTable implements Serializable
         return (hashKey*5) % size;
     }
 
-    //When >60% of the array is filled
-    //resizing is required
+    /*When >60% of the array is filled with heap objects
+      resizing is required by twice the amount*/
     private void reSize()
     {
         //Check if array is >60% full
@@ -296,6 +299,9 @@ class HashTable implements Serializable
         return isPrime;
     }
 
+    /*Shrink method for the Hashtable, when only 30% of the space is being
+      occupied after removing items, the table shrinks but not less than the
+      original size  */
     private void shrink()
     {
         int newHashIdx = 0;
@@ -312,8 +318,8 @@ class HashTable implements Serializable
             {
                 if(hashArray[i] != null && hashArray[i].getState() != false)
                 {
-                    //Require to re hash each item in the old table
-                    //and place it in the new one of a different size
+                    /*Require to re hash each item in the old table
+                      and place it in the new one of a different size*/
                     newHashIdx = hashKey(hashArray[i].getKey(), newArray.length);
                     stepSize = stepSize(newHashIdx);
                     while(newArray[newHashIdx] != null && newArray[newHashIdx].getState() != false)
@@ -327,11 +333,6 @@ class HashTable implements Serializable
             this.hashArray = newArray;
         }
     }
-
-    /*private hashItem[] getArray()
-    {
-        return hashArray;
-    }*/
 
     public int getSize()
     {
@@ -414,21 +415,6 @@ class HashTable implements Serializable
         }
         return c;
     }
-
-    /*public void save(String file)
-    {
-        reader.saveTable(file,this);
-    }
-
-    public void load(String file)
-    {
-        reader.readFile(file, this);
-    }
-
-    public boolean checkNull(int pos)
-    {
-        return (hashArray[pos].getState() == true);
-    }*/
 
     public void check()
     {

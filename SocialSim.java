@@ -27,6 +27,8 @@ public class SocialSim
                     System.out.println("Enter file name");
                     String file = userInterface.fileInput();
                     n.simulationTimeStep(file,prob_like,prob_foll);
+                    n.listPost();
+                    n.listUser();
                 }
                 catch(NumberFormatException ex)
                 {

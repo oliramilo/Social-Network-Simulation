@@ -1,8 +1,9 @@
 //Draft
-import java.util.Hashtable;
 import java.util.Random;
 
-//Network is a graph
+/*Network is a graph, made a new "graph" data structure for the assignment specifications
+  most of the code from the graph is different to this one. Network class contains a hashtable
+  and linkedlists of users/posts for every "Vertex" or edges that exist in the Social Network*/
 public class Network
 {
     //We can reduce the amount of containers here
@@ -420,16 +421,16 @@ public class Network
             if(!p.isDeleted())
             {
                 Person op = p.getOP();
-                DSAQueue event = new Queue();
-
                 if(!op.getFollowers().isEmpty())
                 {
-                    //for(Object iterVertex:op.getFollowers())
-                    //{
-                      //  Person followerOfOP = (Person)iterVertex;
+                    for(Object iterVertex:op.getFollowers())
+                    {
+                        Person followerOfOP = (Person)iterVertex;
+
+                        DSAQueue event = new Queue();
                         System.out.println("Performing a breadth first search...");
-                        orderList.enQueue(breadthFirstSearch(op, p , event, k, n));
-                    //}
+                        orderList.enQueue(breadthFirstSearch(followerOfOP, p , event, k, n));
+                    }
                 }
             }        
         }
@@ -468,7 +469,7 @@ public class Network
         while(!searchOrder.isEmpty())
         {
             p = (Person)searchOrder.deQueue();
-            if(probablity(k) /*&& !pPost.getOP().equals(p)*/)
+            if(probablity(k) && !pPost.getOP().equals(p))
             {
                 //Don't need to check if original poster liked the post
                 //as that's already done in timeStep method
