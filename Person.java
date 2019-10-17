@@ -7,11 +7,13 @@ import java.util.Iterator;
 //Whether a person is deleted from the Network or not
 public class Person
 {
-    //Can remove some things here
+    /*Person class has a linked list of followers, who is following them,
+      posts made by the user and a list of posts the user likes */
     private DSALinkedList followers;
     private DSALinkedList following;
     private DSALinkedList posts;
     private DSALinkedList likedPosts;
+    /*A person in the graph is identified by their String name */
     private String name;
     public Person(String name)
     {
@@ -55,6 +57,7 @@ public class Person
         this.followers = pFollowers;
     }
 
+    /*Assertion: Person p is a valid object and exists in the graph */
     public void unFollow(Person p)
     {
         if(!following.isEmpty())
@@ -63,10 +66,11 @@ public class Person
         }
         else
         {
-            throw new IllegalArgumentException( name+" is not following "+p.getName());
+            throw new IllegalArgumentException( name+" is not following anyone");
         }
     }
 
+    /*Assertion: Person p is a valid object and exists in the graph */
     public void unFollowed(Person p)
     {
 

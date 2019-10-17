@@ -552,14 +552,13 @@ public class Network
         this.userList = list;
     }
 
-    public void updatePosts(Person p)
+    /*Updates the linked list of posts for the user Person p */
+    public void updatePosts()
     {
         DSALinkedList update = new DSALinkedList();
         Post post = null;
-        if(!p.getPosts().isEmpty())
+        if(!postList.isEmpty())
         {
-
-        
             for(Object iter:postList)
             {
                 post = (Post)iter;
