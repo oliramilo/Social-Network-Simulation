@@ -407,18 +407,29 @@ public class Network
         return toQueue;
     }
 
+    /*Time step method, for all the posts that are active, each person that is 
+      following the original poster will be notified and have a probability of 
+      liking the post and following the original poster, given by interger k and n.
+      Assertion: The original poster's followers are actually following them
+      Method returns a queue of queues that contain strings of information
+      that happened during the time step*/
     public DSAQueue timeStep(int k,int n)
     {
+        //Update the linkedlist and HashTable before time stepping 
         update();
         DSAQueue orderList = new Queue();
+        /*Iterate over the post of linkedlists */
         for(Object iter:postList)
         {
             Post p = (Post)iter;
+            /*The post must be active and not deleted */
             if(!p.isDeleted())
             {
                 Person op = p.getOP();
                 if(!op.getFollowers().isEmpty())
                 {
+                    /*Go over the linkedlist of followers that the original
+                      poster has */
                     for(Object iterVertex:op.getFollowers())
                     {
                         Person followerOfOP = (Person)iterVertex;
@@ -454,6 +465,8 @@ public class Network
         return orderList;
     }*/
 
+    /*Breadth first search for the time step, returns a queue of strings displaying
+      information of what happened during the time step*/
     private DSAQueue breadthFirstSearch(Person pFollow, Post pPost, DSAQueue event, int k, int n)
     {
         DSAQueue searchOrder = new Queue();
@@ -467,8 +480,8 @@ public class Network
             p = (Person)searchOrder.deQueue();
             if(probablity(k) && !pPost.getOP().equals(p))
             {
-                //Don't need to check if original poster liked the post
-                //as that's already done in timeStep method
+                /*The original poster cannot like their own posts, that's sad.
+                  And check if the person already likes the post*/
                 if(!alreadyLiked(p, pPost) && !p.equals(pPost.getOP()))
                 {
                     String e = ("L:"+p.getName() + ":P:" + pPost.getOP().getName() + ":" + pPost.getMessage());
@@ -478,8 +491,6 @@ public class Network
                     pPost.like(p);
                 }
                 /*Probabiltiy of following*/
-                //Dont need to calculate the probability of following if
-                //the op of the post is the Person p
                 if(probablity(n))
                 {
                     //Person cannot follow themselves
@@ -491,6 +502,7 @@ public class Network
                         setFollow(p, pPost.getOP());
                     }
                 }
+                /*Make sure the current follower actually has followers */
                 if(!p.getFollowers().isEmpty())
                 {
                     Person next = null;
