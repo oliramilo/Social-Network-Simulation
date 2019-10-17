@@ -1,3 +1,5 @@
+
+/*Driver method to run the program for Social Simulator */
 import java.util.NoSuchElementException;
 
 public class SocialSim

@@ -15,11 +15,20 @@ public class eventFileReader
             rdr = new InputStreamReader(strm);
             bfr = new BufferedReader(rdr);
             line = bfr.readLine();
+            int count = 1;
 
             while(line != null)
             {
-                lineProcessor(line, n);
+                try
+                {
+                    lineProcessor(line, n);
+                }
+                catch(IllegalArgumentException ex)
+                {
+                    System.out.println("Error occured at line" + count);
+                }
                 line = bfr.readLine();
+                count++;
             }
         }
         catch(IOException e)
