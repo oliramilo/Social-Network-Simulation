@@ -119,7 +119,6 @@ public class ui
         catch(InputMismatchException e)
         {
         }
-        sc.close();
         return input;
     }
 
@@ -134,7 +133,6 @@ public class ui
         catch(InputMismatchException e)
         {
         }
-        sc.close();
         return c;
     }
 
@@ -142,7 +140,6 @@ public class ui
     {
         Scanner sc = new Scanner(System.in);
         String file = sc.nextLine();
-        sc.close();
         return file;
     }
 
@@ -150,7 +147,6 @@ public class ui
     {
         Scanner sc = new Scanner(System.in);
         String person = sc.nextLine();
-        sc.close();
         return person;
     }
 

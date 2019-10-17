@@ -1,5 +1,6 @@
 
 /*Driver method to run the program for Social Simulator */
+import java.util.*;
 import java.util.NoSuchElementException;
 
 public class SocialSim
@@ -48,6 +49,7 @@ public class SocialSim
         catch(NoSuchElementException e)
         {
             System.out.println("Forced exit.");
+            e.printStackTrace();
         }
     }
 }
