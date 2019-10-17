@@ -36,6 +36,13 @@ public class eventFileReader
             s[0].trim();
             n.addUser(s[0]);
         }
+
+        else if(s[0].length() == 1 && s[0].charAt(0) == 'A')
+        {
+                s[1].trim();
+                n.addUser(s[1]);
+        }
+
         else if (s.length == 2)
         {
             s[0].trim();
@@ -65,7 +72,9 @@ public class eventFileReader
             case 'P':
                 n.addPost(firstAction,secondAction);
                 break;
-
+            case 'U':
+                n.removeConnection(firstAction, secondAction);
+                break;
             default:
                 throw new IllegalArgumentException("Error occurred: " + Error.FILE_ERR);
         }
