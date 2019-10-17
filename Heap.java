@@ -1,4 +1,14 @@
-/*Heap data structure implemented during the practicals*/
+/*FILE: Heap.java
+* AUTHOR: Olimar Ramilo
+* UNIT: COMP1002
+* PURPOSE: Maximum heap data structure to store
+*          any datatype as an object based on their
+*          priority key values represented by an integer
+* REFERENCE: trickleDown algorithm based off Robert Lafore
+*            Data Structures and Algorithms 2nd Edition */
+/*Heap data structure implemented during the practicals,
+* some method sand their functions have been changed to meet the
+* specifications of the assignment*/
 public class Heap 
 {
     /*Private inner class to hold the object and priority values */
@@ -28,7 +38,7 @@ public class Heap
         }
     }
 
-    //Default size for a heap array
+    /*Default size for a heap array*/
     public static final int DEFAULT_SIZE = 8191;
     private heapItem[] heapArr;
     private int size;
@@ -38,6 +48,7 @@ public class Heap
         size = 0;
     }
 
+    /*Adds items to the Heap array*/
     void add(int priority, Object item)
     {
         heapItem entry = new heapItem(priority, item);
@@ -50,17 +61,23 @@ public class Heap
         else
         {
             heapArr[size] = entry;
+            /*Trickle up must be called to arrange the array so
+            * that the the array is ordered from highest priority
+            * to lowest*/
             trickleUp();
             size++;
 
         }
     }
 
+    /*Returns the Object value stored in the heapItem object*/
     Object remove()
     {
         return removeItem().get();
     }
 
+    /*Returns a heap object from the 0th index of the
+    * heap array*/
     heapItem removeItem()
     {
         heapItem ret = null;
@@ -86,9 +103,10 @@ public class Heap
         return ret;
     }
 
-    //Method used to change the priority of the items in the heap
-    //An alternative approach would be having an iterator to execute
-    //the same operation
+    /*Method used to change the priority of the items in the heap
+      An alternative approach would be having an iterator to execute
+      the same operation, implemented during the assignment as it may
+      be needed*/
     void change(int newKey, Object val)
     {
         int i =0;
@@ -152,6 +170,7 @@ public class Heap
         }
     }
 
+    /**/
     private void trickleUpRec(int pos)
     {
         if(pos >= 0)
@@ -180,6 +199,10 @@ public class Heap
         }
     }
 
+    /*This algorithm is based off Robert Lafore's Data Structures
+    * Aand Algorithms in Java 2nd Edition. The code from the book
+    * shows the trickle down algorithm iteratively, during the practicals
+    * I implemented a recursively function for it*/
     private void trickleDownRec(heapItem heapArr[],int pos, int size, boolean done)
     {
         int largest = 0;
@@ -213,6 +236,7 @@ public class Heap
         heapSort(this.heapArr,this.size);
     }
 
+    /*Heapifies an already heap array...*/
     heapItem[] heapify(heapItem[] arr,int size)
     {
         for(int i=(size/2)-1;i>=1;i--)
@@ -222,6 +246,10 @@ public class Heap
         return arr;
     }
 
+    /*Heap sort algorithm of a heap O(n*log(n))
+    * which iterates over the heap array and places
+    * the current position into the correct spot by the
+    * priority value of its children nodes being greater*/
     void heapSort(heapItem arr[], int size)
     {
         heapify(arr,size);
@@ -239,6 +267,7 @@ public class Heap
         return this.size;
     }
 
+    //Dead code, delete later
     void setSize(int size)
     {
         this.size = size;
