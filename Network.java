@@ -466,7 +466,9 @@ public class Network
     }*/
 
     /*Breadth first search for the time step, returns a queue of strings displaying
-      information of what happened during the time step*/
+      information of what happened during the time step. The original breadth first search 
+      originally was a recursive function but in an instance of having a lot of People in the 
+      graph, may occur a stack overflow due to too many recursive calls*/
     private DSAQueue breadthFirstSearch(Person pFollow, Post pPost, DSAQueue event, int k, int n)
     {
         DSAQueue searchOrder = new Queue();
