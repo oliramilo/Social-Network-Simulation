@@ -33,7 +33,7 @@ public class ui
         boolean exit = true;
         System.out.println("Default probabilities");
         System.out.println("Following: " + prob_foll);
-        System.out.println("Liking a post" + prob_like);
+        System.out.println("Liking a post " + prob_like);
         menuChoice();
         select = input();
         switch(select)
@@ -143,6 +143,14 @@ public class ui
         return file;
     }
 
+    public char choiceInput()
+    {
+        Scanner sc = new Scanner(System.in);
+        char choice = sc.nextLine().charAt(0);
+
+        return choice;
+    }
+
     public String stringInput()
     {
         Scanner sc = new Scanner(System.in);
@@ -157,7 +165,6 @@ public class ui
         try
         {
             eventFileReader.readFile(file, socialSim);
-            System.out.println("File loaded");
         }
         catch(IllegalArgumentException e)
         {
@@ -168,7 +175,9 @@ public class ui
     public void setProbabilities()
     {
         System.out.println("Changing probabilities");
+        System.out.print("Enter like probability: ");
         int prob = input();
+        System.out.print("Enter follow probability: " + prob);
         int pLike = input();
         if(prob < 0 && pLike < 0)
         {
@@ -177,17 +186,46 @@ public class ui
         }
         else
         {
-            System.out.println("Probability of following: " + prob + "%d");
-            System.out.println("Probability of liking: " + pLike + "%d");
+            System.out.println("Probability of following: " + pLike + "%");
+            System.out.println("Probability of liking: " + prob + "%");
             System.out.println("Run a time step to see results");
-            prob_foll = prob;
-            prob_like = pLike;
+            prob_foll = pLike;
+            prob_like = prob;
         }
     }
 
     public void nodeOperations()
     {
-        System.out.println("1. Find\n");
+        int operation = 0;
+        System.out.println("1. Find");
+        System.out.println("2. Make");
+        System.out.println("3. Delete");
+        operation = input();
+        switch(operation)
+        {
+            case 1:
+            {
+                
+            }
+            break;
+
+            case 2:
+            {
+                newUser();
+            }
+            break;
+
+            case 3:
+            {
+
+            }
+            break;
+
+            default:
+            {
+                System.out.println("Invalid selection...");
+            }
+        }
     }
 
     public void edgeOperations()
@@ -203,9 +241,16 @@ public class ui
         {
             String message;
             System.out.println(socialSim.find(person));
-            System.out.print("What does the message say?");
+            System.out.println("What does the message say?");
             message = stringInput();
-            socialSim.addPost(person, message);
+            if(!message.trim().equals(""))
+            {
+                socialSim.addPost(person, message);
+            }
+            else
+            {
+                System.out.println("You cannot post empty messages");
+            }
         }
         catch(Exception e)
         {
@@ -226,13 +271,39 @@ public class ui
     public void update()
     {
         System.out.println("Running a time-step");
-        System.out.println("Set probabilities: " + prob_foll + "% following" + prob_like + "% like" );
+        System.out.println("Set probabilities: " + prob_foll + "% following "
+                                                     + prob_like + " % like" );
         socialSim.timeStep(prob_like, prob_foll);
     }
 
     public void save()
     {
         System.out.println("save not yet implemented");
+    }
+
+    public void newUser()
+    {
+        char choice;
+        String name;
+        System.out.print("Enter Username: ");
+        name = stringInput();
+        boolean confirm = true;
+        while(confirm)
+        {
+            System.out.println(name + " will be the name.\nConfirm? (y/n)");
+            choice = choiceInput();
+            if(choice == 'n')
+            {
+                System.out.print("Enter Username: ");
+                name = stringInput();
+            }
+            else
+            {
+                confirm = false;
+            }
+        }
+        socialSim.addUser(name);
+        System.out.println(name + " Is added into the network");
     }
 
     public void menuChoice()
