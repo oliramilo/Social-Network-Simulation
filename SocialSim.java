@@ -6,10 +6,11 @@ public class SocialSim
 {
     public static void main(String[]args)
     {
+
+        ui userInterface = new ui();
         try
         {
-            ui userInterface = new ui();
-            if(args.length == 2 && args[1].equals("-i"))
+            if(args.length == 1 && args[0].equals("-i"))
             {
                 System.out.println("Selected interactive mode\n");
                 userInterface.menuSelect();
@@ -48,6 +49,5 @@ public class SocialSim
         {
             System.out.println("Forced exit.");
         }
-
     }
 }

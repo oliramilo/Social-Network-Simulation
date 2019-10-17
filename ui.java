@@ -15,7 +15,11 @@ public class ui
 
     public void menuSelect()
     {
-        interactionMode();
+        boolean exit = true;
+        while(exit)
+        {
+            exit = interactionMode();
+        }
     }
 
     public void usage()
@@ -23,70 +27,84 @@ public class ui
         System.out.println("Usage: ");
     }
 
-    public void interactionMode()
+    public boolean interactionMode()
     {
         int select = 0;
-        boolean exit = false;
-        while(!exit)
+        boolean exit = true;
+        System.out.println("Default probabilities");
+        System.out.println("Following: " + prob_foll);
+        System.out.println("Liking a post" + prob_like);
+        menuChoice();
+        select = input();
+        switch(select)
         {
-            System.out.println("Default probabilities");
-            System.out.println("Following: " + prob_foll);
-            System.out.println("Liking a post" + prob_like);
-            menuChoice();
-            select = input();
-            switch(select)
+            case 1:
             {
-                case 1:
-                    loadNetwork();
-                    break;
+                loadNetwork();
+            }
+            break;
 
-                case 2:
-                    setProbabilities();
-                    break;
+            case 2:
+            {
+                setProbabilities();
+            }
+            break;
 
-                case 3:
-                    nodeOperations();
-                    break;
+            case 3:
+            {
+                nodeOperations();
+            }
+            break;
 
-                    case 4:
-                    edgeOperations();
-                    break;
+            case 4:
+            {
+                edgeOperations();
+            }
+            break;
 
-                case 5:
-                    newPost();
-                    break;
+            case 5:
+            {
+                newPost();
+            }
+            break;
 
-                case 6:
-                    displayNetwork();
-                    break;
+            case 6:
+            {
+                displayNetwork();
+            }
+            break;
 
-                case 7:
-                    displayStats();
-                    break;
+            case 7:
+            {
+                displayStats();
+            }    
+            break;
 
-                case 8:
-                    update();
-                    break;
+            case 8:
+            {
+                update();
+            }
+            break;
 
-                case 9:
-                    save();
-                    break;
+            case 9:
+            {
+                save();
+            }
+            break;
 
-                case 10:
-                    exit = true;
-                    break;
+            case 10:
+            {
+                System.out.println("Exited wowwowowo");
+                exit = false;
+            }
+            break;
 
-                default:
-                    System.out.println("No option for recent input");
-                    break;
+            default:
+            {
+                System.out.println("No option for recent input");
             }
         }
-    }
-
-
-    public void simulationMode()
-    {
-
+        return exit;
     }
 
     public int input()
