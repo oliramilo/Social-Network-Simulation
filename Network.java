@@ -326,8 +326,8 @@ public class Network
         return pQ;
     }
 
-    //Generates a chance number based on percentage k
-    //Return true or false which will trigger event
+    /*Generates a chance number based on percentage k
+      Return true or false which will trigger event*/
     public boolean probablity(int k)
     {
         int chance = k;
@@ -349,6 +349,25 @@ public class Network
         return outcome;
     }
 
+    public boolean probablity(int k, int clickBaitFactor)
+    {
+        int chance = k*clickBaitFactor;
+        boolean outcome = false;
+        if(chance > 100)
+        {
+            outcome = true;
+        }
+        else
+        {
+            Random rand = new Random();
+            int num = rand.nextInt(101);
+            if(num <= chance)
+            {
+                outcome = true;
+            }
+        }
+        return outcome;
+    }
     public void simulationTimeStep(String file, int k,int n)
     {
         try
@@ -461,27 +480,6 @@ public class Network
         return orderList;
     }
 
-    //IDK What kind of timeStep they want to do, uncomment the function above
-    //and comment this one out to test the other approach
-    /*public DSAQueue timeStep(int k,int n)
-    {
-        update();
-        DSAQueue orderList = new Queue();
-        Person p = null;
-        Post status = null;
-        for(Object user:userList)
-        {
-            p = (Person)user;
-            for(Object post:postList)
-            {
-                status = (Post)post;
-                DSAQueue event = new Queue();
-                orderList.enQueue(breadthFirstSearch(p, status, event, k, n));
-            }
-        }
-        return orderList;
-    }*/
-
     /*Breadth first search for the time step, returns a queue of strings displaying
       information of what happened during the time step. The original breadth first search 
       originally was a recursive function but in an instance of having a lot of People in the 
@@ -497,7 +495,7 @@ public class Network
         while(!searchOrder.isEmpty())
         {
             p = (Person)searchOrder.deQueue();
-            if(probablity(k) && !pPost.getOP().equals(p))
+            if(probablity(k,pPost.getClickBaitFactor()) && !pPost.getOP().equals(p))
             {
                 /*The original poster cannot like their own posts, that's sad.
                   And check if the person already likes the post*/
@@ -688,14 +686,13 @@ public class Network
         private Person op;
         private String status;
         private DSALinkedList likedBy;
-        private int likes;
-
+        private int clickBaitFactor;
         public Post(String name, String message)
         {
             if(userExist(name))
             {
                 op = (Person)Users.get(name);
-                int likes=0;
+                clickBaitFactor = 1;
                 status = message;
                 likedBy = new DSALinkedList();
             }
@@ -705,12 +702,12 @@ public class Network
             }
         }
 
-        public Post(String name, String message,int likes)
+        public Post(String name, String message,int clickBaitFactor)
         {
             op = (Person)Users.get(name);
             status = message;
             likedBy = new DSALinkedList();
-            this.likes = likes;
+            this.clickBaitFactor = clickBaitFactor;
             /*To make a post, the Person must be in the Network graph*/
             if(!userExist(op.getName()))
             {
@@ -718,40 +715,26 @@ public class Network
             }
         }
 
+        public void setClickBaitFactor(int clickBaitFactor)
+        {
+            this.clickBaitFactor = clickBaitFactor;
+        }
+
         //Adds user to the list of likes
         public void like(Person p)
         {
             
-            likeCountInc(false);
             likedBy.insertLast(p);
-        }
-
-        /* The first approach of calling size() from linked list class
-           would suffice but, if a person is deleted from the Network
-           that becomes an issue as the person may have liked the post
-           but is has been removed*/
-        public void likeCount(int likes)
-        {
-            this.likes = likes;
-        }
-
-        /*Will increment/decrement the like count depending on the supplied 
-          boolean argument true = decrement, false = increment*/
-        public void likeCountInc(boolean b)
-        {
-            if(b)
-            {
-                likes--;
-            }
-            else
-            {
-                likes++;
-            }
         }
 
         public int getLikes()
         {
             return likedBy.size();
+        }
+
+        public int getClickBaitFactor()
+        {
+            return clickBaitFactor;
         }
 
         public Person getOP()

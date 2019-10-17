@@ -1,20 +1,76 @@
-L:Andy:P:Mr. PotatoHead:Ages three and up! It's on my box! Ages three and up! I'm not supposed to be babysitting Princess Drool!
-L:Hamm:P:Mr. PotatoHead:Ages three and up! It's on my box! Ages three and up! I'm not supposed to be babysitting Princess Drool!
+L:Rex:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Bo Peep:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Woody:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Woody:Buzz Lightyear
+L:Slinky Dog:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Lenny:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Sergeant:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Sergeant:Buzz Lightyear
+L:Soldier1:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Soldier1:Buzz Lightyear
+L:Soldier2:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Soldier3:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Soldier3:Buzz Lightyear
+L:Soldier4:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Soldier4:Buzz Lightyear
+L:Soldier5:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Soldier6:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Soldier2:Buzz Lightyear
+L:Bo Peep:P:Buzz Lightyear:To infininty and beyond!
+L:Woody:P:Buzz Lightyear:To infininty and beyond!
+L:Rex:P:Buzz Lightyear:To infininty and beyond!
+L:Lenny:P:Buzz Lightyear:To infininty and beyond!
+L:Slinky Dog:P:Buzz Lightyear:To infininty and beyond!
+L:Soldier3:P:Buzz Lightyear:To infininty and beyond!
+L:Soldier4:P:Buzz Lightyear:To infininty and beyond!
+L:Soldier2:P:Buzz Lightyear:To infininty and beyond!
 L:Woody:P:Bo Peep:I've got my moving buddy
-L:Andy:P:Bo Peep:I've got my moving buddy
-L:Buzz Lightyear:P:Bo Peep:I've got my moving buddy
-L:Andy:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Rex:P:Bo Peep:I've got my moving buddy
+F:Rex:Bo Peep
+L:Lenny:P:Bo Peep:I've got my moving buddy
+L:Sergeant:P:Bo Peep:I've got my moving buddy
+F:Sergeant:Bo Peep
+L:Soldier2:P:Bo Peep:I've got my moving buddy
+L:Soldier3:P:Bo Peep:I've got my moving buddy
 L:Bo Peep:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
-L:Buzz Lightyear:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
-F:Buzz Lightyear:Woody
-L:Andy:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Slinky Dog:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Rex:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Lenny:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Bo Peep:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Sergeant:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Soldier1:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Soldier2:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Soldier3:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Soldier5:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Soldier6:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+F:Soldier6:Buzz Lightyear
+L:Lenny:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Slinky Dog:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Woody:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
 L:Bo Peep:P:Woody:BUZZ, LOOK, AN ALIEN!
-L:Buzz Lightyear:P:Woody:BUZZ, LOOK, AN ALIEN!
-L:Andy:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Rex:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Sergeant:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Soldier3:P:Woody:BUZZ, LOOK, AN ALIEN!
+F:Soldier3:Woody
+L:Soldier6:P:Woody:BUZZ, LOOK, AN ALIEN!
+F:Soldier6:Woody
+L:Lenny:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Soldier5:P:Woody:BUZZ, LOOK, AN ALIEN!
+F:Soldier5:Woody
+L:Bo Peep:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Woody:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Rex:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Slinky Dog:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Soldier3:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Sergeant:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Soldier1:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Soldier2:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
 L:Bo Peep:P:Woody:Oh, yeah? Well, good riddance, ya loony!
-L:Buzz Lightyear:P:Woody:Oh, yeah? Well, good riddance, ya loony!
-L:Woody:P:Slinky Dog: It's too short. We need more monkeys!
-L:Andy:P:Slinky Dog: It's too short. We need more monkeys!
-L:Bo Peep:P:Slinky Dog: It's too short. We need more monkeys!
-F:Bo Peep:Slinky Dog
-L:Buzz Lightyear:P:Slinky Dog: It's too short. We need more monkeys!
+L:Rex:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Sergeant:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Soldier2:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+F:Soldier2:Woody
+L:Soldier5:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Soldier6:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Slinky Dog:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Soldier3:P:Woody:Oh, yeah? Well, good riddance, ya loony!

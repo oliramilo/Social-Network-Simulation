@@ -56,7 +56,14 @@ public class eventFileReader
         {
             s[0].trim();
             s[1].trim();
-            n.newConnection(s[0],s[1]);
+            if(!s[0].equals("") && !s[1].equals(""))
+            {
+                n.newConnection(s[1],s[0]);
+            }
+            else
+            {
+                System.out.println("User is blank...");
+            }
         }
         else if(s.length == 3)
         {
@@ -88,7 +95,7 @@ public class eventFileReader
         switch(action)
         {
             case 'F':
-                n.newConnection(firstAction,secondAction);
+                n.newConnection(secondAction,firstAction);
                 break;
             case 'P':
                 n.addPost(firstAction,secondAction);
