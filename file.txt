@@ -1,0 +1,20 @@
+L:Andy:P:Mr. PotatoHead:Ages three and up! It's on my box! Ages three and up! I'm not supposed to be babysitting Princess Drool!
+L:Hamm:P:Mr. PotatoHead:Ages three and up! It's on my box! Ages three and up! I'm not supposed to be babysitting Princess Drool!
+L:Woody:P:Bo Peep:I've got my moving buddy
+L:Andy:P:Bo Peep:I've got my moving buddy
+L:Buzz Lightyear:P:Bo Peep:I've got my moving buddy
+L:Andy:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Bo Peep:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Buzz Lightyear:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+F:Buzz Lightyear:Woody
+L:Andy:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Bo Peep:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Buzz Lightyear:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Andy:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Bo Peep:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Buzz Lightyear:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Woody:P:Slinky Dog: It's too short. We need more monkeys!
+L:Andy:P:Slinky Dog: It's too short. We need more monkeys!
+L:Bo Peep:P:Slinky Dog: It's too short. We need more monkeys!
+F:Bo Peep:Slinky Dog
+L:Buzz Lightyear:P:Slinky Dog: It's too short. We need more monkeys!

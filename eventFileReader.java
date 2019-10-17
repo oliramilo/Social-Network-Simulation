@@ -63,6 +63,18 @@ public class eventFileReader
             char action = s[0].charAt(0);
             event(action,s[1],s[2],n);
         }
+        else if(s.length == 4)
+        {
+            try
+            {
+                int numLikes = Integer.parseInt(s[3]);
+                n.readPost(s[1],s[2],numLikes);
+            }
+            catch(NumberFormatException e)
+            {
+                System.out.println("Argument at supplied, is not a number");
+            }
+        }
         else 
         {
             throw new IllegalArgumentException("Error occurred: " + Error.FILE_ERR);

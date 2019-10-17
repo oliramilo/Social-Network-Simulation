@@ -101,6 +101,23 @@ public class Network
         }
     }
 
+    void readPost(String name, String status,int likes)
+    {
+        Person p = null;
+        if(userExist(name))
+        {
+            p = (Person)Users.get(name);
+            Post pPost = new Post(name,status,likes);
+            p.statusUpdate((Object)pPost);
+            postList.insertLast(pPost);
+            postCount++;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid operation for: " + Error.USER_ERR);
+        }
+    }
+
     //an addEdge method for Post, linking user to the post
     void likePost(String name, Post post)
     {
@@ -671,11 +688,29 @@ public class Network
         private Person op;
         private String status;
         private DSALinkedList likedBy;
+        private int likes;
+
         public Post(String name, String message)
+        {
+            if(userExist(name))
+            {
+                op = (Person)Users.get(name);
+                int likes=0;
+                status = message;
+                likedBy = new DSALinkedList();
+            }
+            else
+            {
+                throw new IllegalArgumentException("Post cannot me created");
+            }
+        }
+
+        public Post(String name, String message,int likes)
         {
             op = (Person)Users.get(name);
             status = message;
             likedBy = new DSALinkedList();
+            this.likes = likes;
             /*To make a post, the Person must be in the Network graph*/
             if(!userExist(op.getName()))
             {
@@ -685,7 +720,9 @@ public class Network
 
         //Adds user to the list of likes
         public void like(Person p)
-        {    
+        {
+            
+            likeCountInc(false);
             likedBy.insertLast(p);
         }
 
@@ -693,6 +730,25 @@ public class Network
            would suffice but, if a person is deleted from the Network
            that becomes an issue as the person may have liked the post
            but is has been removed*/
+        public void likeCount(int likes)
+        {
+            this.likes = likes;
+        }
+
+        /*Will increment/decrement the like count depending on the supplied 
+          boolean argument true = decrement, false = increment*/
+        public void likeCountInc(boolean b)
+        {
+            if(b)
+            {
+                likes--;
+            }
+            else
+            {
+                likes++;
+            }
+        }
+
         public int getLikes()
         {
             return likedBy.size();

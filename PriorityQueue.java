@@ -35,9 +35,4 @@ class PriorityQueue
     {
         heap.sortThis();
     }
-
-    void test()
-    {
-        heap.testSorted();
-    }
 }

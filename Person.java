@@ -1,10 +1,8 @@
 import java.util.Iterator;
 
-//Person represents a vertex in the Network graph
-//Person class stores list of followers,
-//who they're following, posts
-//name and registry which is used to determine
-//Whether a person is deleted from the Network or not
+/*Person represents a vertex in the Network graph Person class stores list 
+  of followers, who they're following, posts name and registry which is used 
+  to determine Whether a person is deleted from the Network or not*/
 public class Person
 {
     /*Person class has a linked list of followers, who is following them,
@@ -25,21 +23,27 @@ public class Person
         likedPosts = new DSALinkedList();
     }
 
+    /*Inserts a Person object to the linked list of the followers users have*/
     public void newFollower(Person p)
     {
         followers.insertLast(p);
     }
 
+    /*Inserts a Person object to the linked list of people the users followed*/
     public void followed(Person p)
     {
         following.insertLast(p);
     }
 
+    /*Adds a Post object to the linked list to keep track of the posts the users 
+      make*/
     public void statusUpdate(Object post)
     {
         posts.insertLast(post);
     }
 
+    /*Adds Post object to the linked list of liked posts the user liked
+      Assertion: The Post exists*/
     public void setLiked(Object post)
     {
         likedPosts.insertLast(post);

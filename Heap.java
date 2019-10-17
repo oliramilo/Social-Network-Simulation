@@ -1,7 +1,7 @@
-
+/*Heap data structure implemented during the practicals*/
 public class Heap 
 {
-    
+    /*Private inner class to hold the object and priority values */
     private class heapItem
     {
         private int priority;
@@ -287,25 +287,4 @@ public class Heap
         System.out.println("Pos: "+pos+" "+heapArr[pos].getKey()+" "+heapArr[pos].get());
     }
 
-    void testSorted()
-    {
-        heapItem check = null;
-        boolean sorted = true;
-        sortThis();
-        for(int i =0;i<size-1;i++)
-        {
-            check = heapArr[i];
-            System.out.println(check.getKey());
-            if(check.getKey() > heapArr[i+1].getKey())
-            {
-                sorted = false;
-            }
-        }
-        System.out.println(heapArr[size-1].getKey());
-        System.out.println("Heap is sorted: " + sorted);
-        if(sorted == false)
-        {
-            throw new IllegalArgumentException("Array is unsorted");
-        }
-    }
 }
