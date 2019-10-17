@@ -265,7 +265,9 @@ class DSALinkedList implements Iterable, Serializable
     }
 
     /*Added the remove operation, iterates over the linkedlist to find the Node
-      to be removed. Method, implemented for the assignment */
+      to be removed. Method, implemented for the assignment. This remove 
+      method iterates over the linkedlist to find the Node with the matching
+      object value of the parameter*/
     public void remove(Object e)
     {
         Node iter = head;
@@ -281,6 +283,7 @@ class DSALinkedList implements Iterable, Serializable
             }
             else
             {
+                /*Iterate while null or found the Node position*/
                 while(found && iter != null)
                 {
                     //Check if we are removing the tail
@@ -289,16 +292,23 @@ class DSALinkedList implements Iterable, Serializable
                         tail = tail.getPrev();
                         tail.setNext(null);
                         found = false;
+                        size--;
                     }
+
                     else if(iter.getElement().equals(e))
                     {
+                        size--;
                         found = false;
+                        /*Sitches the previous and next pointer to point to 
+                          each other, the current Node will not have a node pointing
+                          to it*/
                         iter.getNext().setPrev(iter.getPrev());
                         iter.getPrev().setNext(iter.getNext());
                     }
                     iter = iter.getNext();
                 }
             }
+            /*Display message, that the remove operation was not found */
             if(found)
             {
                 System.out.println("Node not found");

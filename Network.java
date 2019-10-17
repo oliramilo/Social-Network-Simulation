@@ -6,13 +6,18 @@ import java.util.Random;
   and linkedlists of users/posts for every "Vertex" or edges that exist in the Social Network*/
 public class Network
 {
-    //We can reduce the amount of containers here
+    /*The choice of a hashtable allows a Person to be mapped
+      in the graph given by their name since get/remove/find operations using 
+      a linkedlist costs O(n) time, the tradeoff with this choice is space which
+      is O(2n) ~ O(n)since we're placing 1 object in 2 containers*/
     private HashTable Users;
+    /*Linkedlist of Users and Posts*/
     private DSALinkedList userList;
-    //This will contain the posts that are unsorted
     private DSALinkedList postList;
     private int userCount;
     private int postCount;
+
+    /**/
     public Network()
     {
         userCount = 0;
@@ -146,18 +151,8 @@ public class Network
             p = (Person)Users.get(name);
             DSALinkedList posts = p.getPosts();
             Post postDlt = null;
-            //Person p's posts must now be deleted
-            //Iterate over the list of posts in Person p
-            /*if(!posts.isEmpty())
-            {
-                for(Object iter:posts)
-                {
-                    postDlt = (Post)iter;
-                    postDlt.postDelete();
-                    postCount--;
-                }
-            }*/
             Users.remove(name);
+
             userCount--;
         }
         else
@@ -166,17 +161,24 @@ public class Network
         }
     }
 
+    /*Removes the link between a person to another person */
     public void removeConnection(String name1,String name2)
     {
+        /*The vertex must exist*/
         if(userExist(name1) && userExist(name2))
         {
             Person p = (Person)Users.get(name1);
             Person p2 = (Person)Users.get(name2);
+            /*Person p will unfollow Person p2*/
             p.unFollow(p2);
+            /*Person p will be removed from Person p2's follower list*/
             p2.unFollowed(p);
         }
     }
 
+    /*The Vertices that were removed were not actually removed but were 
+      marked deleted, this functions to create a new HashTable placing 
+      only "live" objects in the HashTable of current users (Vertex)*/
     private void updateTable()
     {
         Person p = null;
@@ -194,12 +196,6 @@ public class Network
             this.Users = update;
         }
     }
-    //This method is used for outside classes
-    /*private boolean hasPerson(Person p)
-    {
-        Person p = (Person)Users.get(name);
-        return userExist(p);
-    }*/
 
     //This method is used only inside this class
     private boolean userExist(String name)
