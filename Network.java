@@ -258,24 +258,39 @@ public class Network
 
     public void listPost()
     {
-        PriorityQueue list = postOrder();
         Post p = null;
-        while(!list.isEmpty())
+        if(!postList.isEmpty())
         {
-            p = (Post)list.remove();
-            System.out.println(p.toString());
+            PriorityQueue list = postOrder();
+            while(!list.isEmpty())
+            {
+                p = (Post)list.remove();
+                System.out.println(p.toString());
+            }
+        }
+        else
+        {
+            System.out.println("No posts made");
         }
     }
 
     public void listUser()
     {
-        PriorityQueue list = userOrder();
+
         Person p = null;
-        while(!list.isEmpty())
+        if(!userList.isEmpty())
         {
-            p = (Person)list.remove();
-            System.out.println(p.toString());
-        }
+            PriorityQueue list = userOrder();
+            while(!list.isEmpty())
+            {
+                p = (Person)list.remove();
+                System.out.println(p.toString());
+            }
+       }
+       else
+       {
+            System.out.println("No active users in the Social Network");
+       }
     }
 
     public PriorityQueue userOrder()

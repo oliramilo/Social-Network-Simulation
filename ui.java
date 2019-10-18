@@ -31,7 +31,7 @@ public class ui
     {
         int select = 0;
         boolean exit = true;
-        System.out.println("Default probabilities");
+        System.out.println("\nDefault probabilities");
         System.out.println("Following: " + prob_foll);
         System.out.println("Liking a post " + prob_like);
         menuChoice();
@@ -177,7 +177,7 @@ public class ui
         System.out.println("Changing probabilities");
         System.out.print("Enter like probability: ");
         int prob = input();
-        System.out.print("Enter follow probability: " + prob);
+        System.out.print("Enter follow probability: ");
         int pLike = input();
         if(prob < 0 && pLike < 0)
         {
@@ -260,7 +260,7 @@ public class ui
 
     public void displayNetwork()
     {
-        System.out.println("display network not yet implemented");
+        socialSim.display();
     }
 
     public void displayStats()
@@ -308,7 +308,7 @@ public class ui
 
     public void menuChoice()
     {
-        System.out.println("(1) Load Network");
+        System.out.println("\n(1) Load Network");
         System.out.println("(2) Set probabilities");
         System.out.println("(3) Node operations");
         System.out.println("(4) Edge operations");
