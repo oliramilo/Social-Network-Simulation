@@ -247,10 +247,13 @@ public class Network
 
     public void display()
     {
+        listUser();
+        listPost();
         System.out.println("User count in linked list: " + userList.size());
         System.out.println("User count in Hash table: " + Users.getCount());
         System.out.println("Actual user count: " + userCount);
         System.out.println("Actual post count: " + postCount);
+
     }
 
     public void listPost()
