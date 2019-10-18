@@ -123,11 +123,9 @@ public class eventFileReader
                 for(Object o: events)
                 {
                     timeStepEvent = (DSAQueue)o;
-                    for(Object w:timeStepEvent)
+                    for(Object iter:timeStepEvent)
                     {
-                        String s = String.valueOf(w);
-                        //System.out.println(s);
-                        pw.println(s);
+                        pw.println(String.valueOf(iter));
                     }
                 }
                 pw.close();
@@ -140,6 +138,27 @@ public class eventFileReader
         else
         {
             System.out.println("Nothing happened");
+        }
+    }
+
+    public void saveFile(String file, Network n)
+    {
+        FileOutputStream outStrm = null;
+        PrintWriter writer = null;
+        try
+        {
+            outStrm = new FileOutputStream(file);
+            writer = new PrintWriter(file);
+            for(Object iter:n.networkContents())
+            {
+                writer.println(String.valueOf(iter));
+            }
+            outStrm.close();
+            writer.close();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
         }
     }
 }

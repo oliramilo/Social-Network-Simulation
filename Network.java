@@ -670,6 +670,25 @@ public class Network
         return alreadyLiked;
     }
 
+    /*Returns null if the network is empty  */
+    public DSAQueue networkContents()
+    {
+        DSAQueue networkString = null;
+        if(!userList.isEmpty() && !postList.isEmpty())
+        {
+            networkString = new Queue();
+            for(Object iter:userList)
+            {
+                networkString.enQueue(((Person)iter).getName());
+            }
+        }
+        else
+        {
+            throw new IllegalArgumentException("Cannot save empty network");
+        }
+        return networkString;
+    }
+
     /*Network Class will contain the pool of posts from users
       This way, accessing Posts from users will be easier
 
@@ -762,9 +781,14 @@ public class Network
             return Users.get(op.getName()) == null;
         }
 
+        public String toFileString()
+        {
+            return ("P:" + op.getName() + ":" + getMessage());
+        }
+
         public String toString()
         {
-            return ( op.getName()+ ": " + status + "\n" + getLikes() + " Liked this post");
+            return (op.getName()+ ": " + status + "\n" + getLikes() + " Liked this post");
         }
 
         public String getMessage()
