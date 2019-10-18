@@ -141,7 +141,7 @@ public class eventFileReader
         }
     }
 
-    public void saveFile(String file, Network n)
+    public static void saveFile(String file, Network n)
     {
         FileOutputStream outStrm = null;
         PrintWriter writer = null;

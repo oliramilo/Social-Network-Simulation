@@ -278,7 +278,16 @@ public class ui
 
     public void save()
     {
-        System.out.println("save not yet implemented");
+        try
+        {
+            System.out.print("Enter file to save to: ");
+            String file = fileInput();
+            eventFileReader.saveFile(file,socialSim);
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("Error occured: " + Error.EMPTY);
+        }
     }
 
     public void newUser()

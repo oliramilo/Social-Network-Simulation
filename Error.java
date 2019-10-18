@@ -8,4 +8,5 @@ public class Error
     public static final String FILE_ERR = "File format exception";
     public static final String EMPTY_LIST = "List is empty";
     public static final String NO_FILE = "File not found";
+    public static final String EMPTY = "Network is empty";
 }
