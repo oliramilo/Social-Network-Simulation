@@ -256,6 +256,7 @@ public class Network
 
     }
 
+    /*Prints out the lists of posts from most likes to the lowest.*/
     public void listPost()
     {
         Post p = null;
@@ -274,6 +275,8 @@ public class Network
         }
     }
 
+    /*Prints out all active users from the highest popularity to 
+      lowest*/
     public void listUser()
     {
 
@@ -292,7 +295,9 @@ public class Network
             System.out.println("No active users in the Social Network");
        }
     }
-
+    
+    /*Places the active users in the priority queue based on their popularity
+      and returns that max priority queue*/
     public PriorityQueue userOrder()
     {
         Person p = null;
