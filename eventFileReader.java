@@ -42,20 +42,20 @@ public class eventFileReader
         String s[] = line.split(":");
         if(s.length == 1)
         {
-            s[0].trim();
+            s[0] = s[0].trim();
             n.addUser(s[0]);
         }
 
         else if(s[0].length() == 1 && s[0].charAt(0) == 'A')
         {
-                s[1].trim();
+                s[1] = s[1].trim();
                 n.addUser(s[1]);
         }
 
         else if (s.length == 2)
         {
-            s[0].trim();
-            s[1].trim();
+            s[0] = s[0].trim();
+            s[1] = s[1].trim();
             if(!s[0].equals("") && !s[1].equals(""))
             {
                 n.newConnection(s[1],s[0]);
@@ -68,6 +68,8 @@ public class eventFileReader
         else if(s.length == 3)
         {
             char action = s[0].charAt(0);
+            s[1] = s[1].trim();
+            s[2] = s[2].trim();
             event(action,s[1],s[2],n);
         }
         else if(s.length == 4)
@@ -75,6 +77,8 @@ public class eventFileReader
             try
             {
                 int numLikes = Integer.parseInt(s[3]);
+                s[1] = s[1].trim();
+                s[2] = s[2].trim();
                 n.readPost(s[1],s[2],numLikes);
             }
             catch(NumberFormatException e)
@@ -141,7 +145,7 @@ public class eventFileReader
         }
     }
 
-    public void saveFile(String file, Network n)
+    public static void saveFile(String file, Network n)
     {
         FileOutputStream outStrm = null;
         PrintWriter writer = null;

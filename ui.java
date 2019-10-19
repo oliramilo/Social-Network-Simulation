@@ -278,6 +278,9 @@ public class ui
 
     public void save()
     {
+        System.out.println("Enter file to save: ");
+        String file = fileInput();
+        eventFileReader.saveFile(file,socialSim);
         System.out.println("save not yet implemented");
     }
 
