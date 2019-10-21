@@ -697,12 +697,22 @@ public class Network
     public DSAQueue networkContents()
     {
         DSAQueue networkString = null;
-        if(!userList.isEmpty() && !postList.isEmpty())
+        if(!userList.isEmpty() || !postList.isEmpty())
         {
             networkString = new Queue();
             for(Object iter:userList)
             {
-                networkString.enQueue(((Person)iter).getName());
+                Person person = (Person)iter;
+                if(userExist(person.getName()))
+                {
+                    networkString.enQueue(((Person)iter).getName());    
+                }
+            }
+
+            for(Object iter:postList)
+            {
+                Post post = (Post)iter;
+                networkString.enQueue("P:"+ post.getOP() + ":" + post.getMessage());
             }
         }
         else
