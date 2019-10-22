@@ -58,8 +58,8 @@ public class Network
         }
     }
 
-    //Method updates the follower and following of the users
-    //Add edge method
+    /*Method updates the follower and following of the users 
+     *Add edge method for following People in the network*/
     public void newConnection(String user1, String user2)
     {
         Person p = null;
@@ -83,7 +83,8 @@ public class Network
         }
     }
 
-    /*Posts will also represent a vertex*/
+    /*Posts will also represent a vertex, creates a post object to be stored
+     *in a linkedlist of object posts. Post objects are used in the time step function*/
     void addPost(String name, String status)
     {
         Person p = null;
@@ -101,6 +102,7 @@ public class Network
         }
     }
 
+    /*for file reading, adds a new post to the linkedlist of posts*/
     void readPost(String name, String status,int likes)
     {
         Person p = null;
@@ -118,22 +120,27 @@ public class Network
         }
     }
 
-    //an addEdge method for Post, linking user to the post
+    /*an addEdge method for Post, linking user to the post, 
+     *creates a link of the Person liking the post object*/
     void likePost(String name, Post post)
     {
         Person p = null;
+        
         if(userExist(name))
         {
             p = (Person)Users.get(name);
             //Check if Person p already liked the post
             if(!alreadyLiked(p, post))
             {
+                //add post to Person p's linkedlist of posts
                 p.setLiked(post);
+                //add Person p to the linkedlist of likes in the post object
                 post.like(p);
             }
         }
     }
 
+    /*Function for finding users in the Network by their name*/
     public String find(String name)
     {
         Person toFind = null;
@@ -157,8 +164,7 @@ public class Network
         System.out.println(s);
     }
 
-    //Gets User info from the hashtable 
-    //Deregisters the user which "deletes"
+    /*removes user from the network hashtable and linkedlist of people*/
     public void removeUser(String name)
     {
         Person p = null;
@@ -166,8 +172,8 @@ public class Network
         if(userExist(name))
         {
             p = (Person)Users.get(name);
+            /*Iterate over the post and set them as deleted*/
             DSALinkedList posts = p.getPosts();
-            Post postDlt = null;
             Users.remove(name);
             userCount--;
         }
@@ -180,7 +186,7 @@ public class Network
     /*Removes the link between a person to another person */
     public void removeConnection(String name1,String name2)
     {
-        /*The vertex must exist*/
+        /*The vertices must exist for this operation to occur*/
         if(userExist(name1) && userExist(name2))
         {
             Person p = (Person)Users.get(name1);
@@ -232,11 +238,13 @@ public class Network
 
     }
 
+    //Returns the user count in the network
     public int userCount()
     {
         return userCount;
     }
 
+    //Returns the post count in the network
     public int postCount()
     {
         return postCount;
@@ -248,6 +256,8 @@ public class Network
 
 
 
+    /*Displays the list of users and post in the order of popularity and displays the 
+     *current size of the network*/
     public void display()
     {
         listUser();
@@ -259,6 +269,7 @@ public class Network
 
     }
 
+    /*Lists the followers of Person p parameter */
     public void listFollowers(Person p)
     {
         DSALinkedList followers = p.getFollowers();
@@ -277,6 +288,7 @@ public class Network
             System.out.println("User " + p.getName() + " has no followers.");
         }
     }
+
     /*Prints out the lists of posts from most likes to the lowest.*/
     public void listPost()
     {
@@ -373,6 +385,7 @@ public class Network
     {
         int chance = k;
         boolean outcome = false;
+        /*probablity over 100 will return true*/
         if(chance > 100)
         {
             outcome = true;
@@ -380,6 +393,8 @@ public class Network
 
         else
         {
+            /*Take a random number from 100 and check if the result number
+             *is below integer k to return true*/
             Random rand = new Random();
             int num = rand.nextInt(101);
             if(num <= chance)
@@ -390,6 +405,7 @@ public class Network
         return outcome;
     }
 
+    /*Probability function for clickbait factors*/
     public boolean probablity(int k, int clickBaitFactor)
     {
         int chance = k*clickBaitFactor;
@@ -428,6 +444,9 @@ public class Network
         }
     }
 
+    /*Goes over the linkedlist of users and compares with the
+     *active users in the hashtable of users, hashtable returns null if 
+     *user does not exist/deleted*/
     public void clearFollowers()
     {
         update();
@@ -554,6 +573,7 @@ public class Network
                     p.setLiked(pPost);
                     pPost.like(p);
                 }
+
                 /*Probabiltiy of following*/
                 if(probablity(n))
                 {
@@ -566,6 +586,7 @@ public class Network
                         setFollow(p, pPost.getOP());
                     }
                 }
+
                 /*Make sure the current follower actually has followers */
                 if(!p.getFollowers().isEmpty())
                 {

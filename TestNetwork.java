@@ -196,7 +196,7 @@ public class TestNetwork
     {
         Network n = new Network();
         eventFileReader.readFile("networkTS1b.txt", n);
-        eventFileReader.readFile("eventTS1b.txt", n);
+        eventFileReader.readFile("eventsTS1.txt", n);
         try
         {
             //n.simulationTimeStep(file, k, m);
@@ -209,6 +209,7 @@ public class TestNetwork
             //n.display();
             //n.listPost();
             n.simulationTimeStep(file, k, m);
+            n.timeStep(k, m);
             n.listPost();
             n.listUser();
 
