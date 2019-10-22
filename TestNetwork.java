@@ -2,7 +2,7 @@ public class TestNetwork
 {
     public static void main (String [] args)
     {
-        //testSimulation("test.txt", 100, 100);
+        testSimulation("test.txt", 100, 100);
         /*try
         {
             testPerson();
@@ -41,7 +41,7 @@ public class TestNetwork
             e.printStackTrace();
         }*/
         //test(100,100);
-        testOrder();
+//        testOrder();
        // testOrder2();
         //testTimeStep(100, 100);
         /*long testRun[] = new long[10];
@@ -129,7 +129,7 @@ public class TestNetwork
         {
             n.timeStep(100, 100);
             //n.removeUser("Jen");
-            n.update();
+            //n.update();
             n.listUser();
             n.listPost();
         }
@@ -195,8 +195,8 @@ public class TestNetwork
     public static void testSimulation(String file, int k, int m)
     {
         Network n = new Network();
-        eventFileReader.readFile("network1.txt", n);
-        eventFileReader.readFile("events1.txt", n);
+        eventFileReader.readFile("networkTS1b.txt", n);
+        eventFileReader.readFile("eventTS1b.txt", n);
         try
         {
             //n.simulationTimeStep(file, k, m);
@@ -204,7 +204,7 @@ public class TestNetwork
             //n.removeUser("Kira");
             //n.listUser();
             //n.listPost();
-            n.addPost("Aughra", "Hello world!");
+            //n.addPost("Aughra", "Hello world!");
             //n.simulationTimeStep("result2", k, m);
             //n.display();
             //n.listPost();

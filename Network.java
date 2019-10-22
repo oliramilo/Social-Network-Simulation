@@ -420,6 +420,7 @@ public class Network
             DSAQueue q = timeStep(k, n);
             System.out.print(q.isEmpty());
             eventFileReader.eventToFile(file,this,q);
+            display();
         }
         catch(Exception e)
         {
