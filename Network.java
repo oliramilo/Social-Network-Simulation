@@ -255,6 +255,24 @@ public class Network
 
     }
 
+    public void listFollowers(Person p)
+    {
+        DSALinkedList followers = p.getFollowers();
+        if(!followers.isEmpty())
+        {
+            Person follow = null;
+            System.out.println("Users who are following " + p.getName());
+            for(Object iter: followers)
+            {
+                follow = (Person)iter;
+                System.out.println(follow.toString());
+            }
+        }
+        else
+        {
+            System.out.println("User " + p.getName() + " has no followers.");
+        }
+    }
     /*Prints out the lists of posts from most likes to the lowest.*/
     public void listPost()
     {

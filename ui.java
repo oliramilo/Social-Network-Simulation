@@ -217,7 +217,7 @@ public class ui
 
             case 3:
             {
-
+                deleteOperation();
             }
             break;
 
