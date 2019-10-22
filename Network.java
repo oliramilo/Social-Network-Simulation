@@ -169,7 +169,6 @@ public class Network
             DSALinkedList posts = p.getPosts();
             Post postDlt = null;
             Users.remove(name);
-
             userCount--;
         }
         else
@@ -329,16 +328,13 @@ public class Network
         if(!postList.isEmpty())
         {
             pQ = new PriorityQueue();
-            if(postList.peekFirst() instanceof Post)
+            Post p = null;
+            for(Object iter:postList)
             {
-                Post p = null;
-                for(Object iter:postList)
+                p = (Post)iter;
+                if(!p.isDeleted())
                 {
-                    p = (Post)iter;
-                    if(!p.isDeleted())
-                    {
-                        pQ.add(p.getLikes(), p);
-                    }
+                    pQ.add(p.getLikes(), p);
                 }
             }
         }
@@ -391,6 +387,10 @@ public class Network
         }
         return outcome;
     }
+
+    /*Time step for simulation mode in the assignment.
+     * Performs a time step and saves it into a file
+     * the integer imports are the probabilities*/
     public void simulationTimeStep(String file, int k,int n)
     {
         try
@@ -421,6 +421,7 @@ public class Network
             depthFirstSearch(p, visited);
         }
     }
+
     /*Update to remove followers from active users, a DFS approach*/
     private void depthFirstSearch(Person p, HashTable visited)
     {
@@ -750,7 +751,7 @@ public class Network
             }
             else
             {
-                throw new IllegalArgumentException("Post cannot me created");
+                throw new IllegalArgumentException("Post cannot me created for non-existing user.");
             }
         }
 
