@@ -230,7 +230,27 @@ public class ui
 
     public void edgeOperations()
     {
-        System.out.println("edge operation not yet implemented");
+        int operation = 0;
+        System.out.println("1. find");
+        System.out.println("2. make");
+        System.out.println("3. remove");
+        operation = input();
+        switch(operation)
+        {
+            case 1:
+
+                break;
+            case 2: 
+                deleteEdgeOperation();
+                break;
+            case 3:
+
+                deleteEdgeOperation();
+                break;
+
+            default:
+                System.out.println("Invalid selection...");
+        }
     }
 
     public void newPost()
@@ -290,6 +310,11 @@ public class ui
         }
     }
 
+    public void aggEdgeOperation()
+    {
+        char choice;
+
+    }
     public void newUser()
     {
         char choice;
@@ -338,7 +363,39 @@ public class ui
         {
             System.out.println("Couldn't find user: " + name);
         }
-     }
+    }
+
+    public void deleteEdgeOperation()
+    {
+        char choice;
+        String name;
+        String name2;
+        System.out.print("Enter user link 1: ");
+        name = stringInput();
+        System.out.print("Enter user link 2: ");
+        name2 = stringInput();
+        try
+        {
+            System.out.println(socialSim.find(name));
+            System.out.println(socialSim.find(name2));
+            System.out.println("Are you sure you want to delete edge? (y/n)");
+            choice = choiceInput();
+            if(choice == 'y' || choice == 'Y')
+            {
+                socialSim.removeConnection(name,name2);
+            }
+            else
+            {
+                System.out.println("Failed to delete edge");
+            }
+        }
+
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("Cannot find users in the network");
+        }
+    }
+
     public void menuChoice()
     {
         System.out.println("\n(1) Load Network");

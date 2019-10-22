@@ -70,7 +70,7 @@ public class Person
         }
         else
         {
-            throw new IllegalArgumentException( name+" is not following anyone");
+            throw new IllegalArgumentException( name +" is not following anyone");
         }
     }
 

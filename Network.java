@@ -190,6 +190,10 @@ public class Network
             /*Person p will be removed from Person p2's follower list*/
             p2.unFollowed(p);
         }
+        else
+        {
+            throw new IllegalArgumentException("Users do not exist`");
+        }
     }
 
     /*The Vertices that were removed were not actually removed but were 
