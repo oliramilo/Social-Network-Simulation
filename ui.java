@@ -301,7 +301,7 @@ public class ui
         {
             System.out.println(name + " will be the name.\nConfirm? (y/n)");
             choice = choiceInput();
-            if(choice == 'n')
+            if(choice == 'n' || choice == 'N')
             {
                 System.out.print("Enter Username: ");
                 name = stringInput();
@@ -315,6 +315,30 @@ public class ui
         System.out.println(name + " Is added into the network");
     }
 
+    public void deleteOperation()
+    {
+        char choice;
+        String name;
+        System.out.print("Who to delete from the network? ");
+        name = stringInput();
+        boolean confirm = true;
+        try
+        {
+            System.out.println(socialSim.find(name));
+            System.out.println("Removing " + name + " from the network" 
+                                    + " are you sure? (y/n)");
+            choice = choiceInput();
+            if(choice == 'y' || choice == 'Y')
+            {
+                socialSim.removeUser(name);
+                System.out.println("Deleted user: " + name);
+            }
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("Couldn't find user: " + name);
+        }
+     }
     public void menuChoice()
     {
         System.out.println("\n(1) Load Network");
