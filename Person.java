@@ -132,5 +132,4 @@ public class Person
     {
         return ("User: " + name + ", Following "+ usersFollowed() + " others, " + getPopularity() + " current followers, " + "Total posts: " + totalPosts());
     }
-
 }

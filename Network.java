@@ -17,6 +17,25 @@ public class Network
     private int userCount;
     private int postCount;
 
+    public void displayFollowers(String name)
+    {
+        Person p = (Person)Users.get(name);
+        if(p != null)
+        {
+            if(!p.getFollowers().isEmpty())
+            {
+                System.out.println("Followers of: " + name);
+                for(Object iter:p.getFollowers())
+                {
+                    Person next = (Person)iter;
+                    if(userExist(next.getName()))
+                    {
+                        System.out.println(next.toString());
+                    }
+                }
+            }
+        }
+    }
     /**/
     public Network()
     {

@@ -196,7 +196,7 @@ public class TestNetwork
     {
         Network n = new Network();
         eventFileReader.readFile("networkTS1b.txt", n);
-        eventFileReader.readFile("eventsTS1.txt", n);
+        eventFileReader.readFile("eventsTS1b.txt", n);
         try
         {
             //n.simulationTimeStep(file, k, m);
@@ -212,6 +212,7 @@ public class TestNetwork
             n.timeStep(k, m);
             n.listPost();
             n.listUser();
+            n.displayFollowers("Buzz Lightyear");
 
         }
         catch(Exception e)
