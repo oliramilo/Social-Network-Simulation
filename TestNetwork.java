@@ -44,7 +44,7 @@ public class TestNetwork
 //        testOrder();
        // testOrder2();
         //testTimeStep(100, 100);
-        /*long testRun[] = new long[10];
+        long testRun[] = new long[10];
         for(int i =0;i<10;i++)
         {
             testRun[i] = runTimeTest(100, 100);
@@ -59,7 +59,7 @@ public class TestNetwork
         {
             avg+=testRun[i];
         }
-        System.out.print("Average is " + (avg/10));*/
+        System.out.print("Average is " + (avg/10));
     }
 
 
@@ -236,18 +236,11 @@ public class TestNetwork
     {
         Network n = new Network();
         fill(n);
-        eventFileReader.readFile("network1.txt", n);
-        eventFileReader.readFile("events1.txt", n);
+        eventFileReader.readFile("networkTS1b.txt", n);
+        eventFileReader.readFile("eventsTS1.txt", n);
         n.timeStep(k, m);
-        n.removeUser("Kira");
-        n.removeUser("Jen");
-        n.removeUser("Shaggy");
-        n.clearFollowers();
-        n.timeStep(k,m);
-        n.update();
+        eventFileReader.readFile("eventsTS1b.txt", n);
+        n.timeStep(k, m);
         n.display();
-        n.listPost();
-        n.listUser();
-        n.listPost();
     }
 }

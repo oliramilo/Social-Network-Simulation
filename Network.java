@@ -12,7 +12,6 @@ public class Network
       is O(2n) ~ O(n)since we're placing 1 object in 2 containers*/
     private HashTable Users;
     /*Linkedlist of Users and Posts*/
-    private DSALinkedList userList;
     private DSALinkedList postList;
     private int userCount;
     private int postCount;
@@ -43,7 +42,6 @@ public class Network
         postCount = 0;
         Users = new HashTable();
         postList = new DSALinkedList();
-        userList = new DSALinkedList();
     }
 
     //Create a Person and stored in a Hash Table
@@ -55,7 +53,6 @@ public class Network
         {
             p = new Person(name);
             Users.add(name, p);
-            userList.insertLast(p);
             userCount++;
         }
         else
@@ -65,7 +62,6 @@ public class Network
             {
                 p = new Person(name);
                 Users.add(name, p);
-                userList.insertLast(p);
                 userCount++;
             }
 
@@ -159,6 +155,20 @@ public class Network
         }
     }
 
+    public Person get(String name)
+    {
+        Person toGet = null;
+        if(userExist(name))
+        {
+            toGet = (Person)Users.get(name);
+        }
+        else
+        {
+            throw new IllegalArgumentException("Error Occurred: " + Error.USER_ERR);
+        }
+        return toGet;
+    }
+
     /*Function for finding users in the Network by their name*/
     public String find(String name)
     {
@@ -230,7 +240,7 @@ public class Network
         HashTable update = new HashTable();
         if(userCount !=0)
         {
-            for(Object iter:userList)
+            for(Object iter:Users.Set())
             {
                 p = (Person)iter;
                 if(userExist(p.getName()))
@@ -243,7 +253,7 @@ public class Network
     }
 
     //This method is used only inside this class
-    private boolean userExist(String name)
+    public boolean userExist(String name)
     {
         Person p = (Person)Users.get(name);
         return (p != null);
@@ -281,7 +291,6 @@ public class Network
     {
         listUser();
         listPost();
-        System.out.println("User count in linked list: " + userList.size());
         System.out.println("User count in Hash table: " + Users.getCount());
         System.out.println("Actual user count: " + userCount);
         System.out.println("Actual post count: " + postCount);
@@ -333,7 +342,7 @@ public class Network
     {
 
         Person p = null;
-        if(!userList.isEmpty())
+        if(!Users.isEmpty())
         {
             PriorityQueue list = userOrder();
             while(!list.isEmpty())
@@ -354,10 +363,10 @@ public class Network
     {
         Person p = null;
         PriorityQueue activeUser = null;
-        if(!userList.isEmpty())
+        if(!Users.isEmpty())
         {
             activeUser = new PriorityQueue();
-            for(Object iter:userList)
+            for(Object iter:Users.Set())
             {
                 p = (Person)iter;
                 if(userExist(p.getName()))
@@ -472,7 +481,7 @@ public class Network
         Person p = null;
         HashTable visited = new HashTable();
         /*Iterate through the p*/
-        for(Object iter:userList)
+        for(Object iter:Users.Set())
         {
             p = (Person)iter;
             if(visited.isEmpty())
@@ -510,12 +519,12 @@ public class Network
     private PriorityQueue toQueue()
     {
         PriorityQueue toQueue = null;
-        if(!userList.isEmpty())
+        if(!Users.isEmpty())
         {
             toQueue = new PriorityQueue();
             Person p = null;
             //Iterate over the current user list to check for live objects
-            for(Object iter:userList)
+            for(Object iter:Users.Set())
             {
                 p = (Person)iter;
                 //Skip dead objects
@@ -637,21 +646,7 @@ public class Network
     public void update()
     {
         updateTable();
-        updateList();
        // updatePosts();
-    }
-
-    public void updateList()
-    {
-        DSALinkedList list = new DSALinkedList();
-        for(Object iter:userList)
-        {
-            if(userExist(((Person)iter).getName()))
-            {
-                list.insertLast((Person)iter);
-            }
-        }
-        this.userList = list;
     }
 
     /*Updates the linked list of posts for the user Person p */
@@ -761,10 +756,10 @@ public class Network
     public DSAQueue networkContents()
     {
         DSAQueue networkString = null;
-        if(!userList.isEmpty() || !postList.isEmpty())
+        if(!Users.isEmpty() || !postList.isEmpty())
         {
             networkString = new Queue();
-            for(Object iter:userList)
+            for(Object iter:Users.Set())
             {
                 Person person = (Person)iter;
                 if(userExist(person.getName()))

@@ -39,70 +39,48 @@ public class ui
         switch(select)
         {
             case 1:
-            {
                 loadNetwork();
-            }
-            break;
+                break;
 
             case 2:
-            {
                 setProbabilities();
-            }
-            break;
+                break;
 
             case 3:
-            {
                 nodeOperations();
-            }
-            break;
+                break;
 
             case 4:
-            {
                 edgeOperations();
-            }
-            break;
+                break;
 
             case 5:
-            {
                 newPost();
-            }
-            break;
+                break;
 
             case 6:
-            {
                 displayNetwork();
-            }
-            break;
+                break;
 
             case 7:
-            {
                 displayStats();
-            }    
-            break;
+                break;
 
             case 8:
-            {
                 update();
-            }
-            break;
+                break;
 
             case 9:
-            {
                 save();
-            }
-            break;
+                break;
 
             case 10:
-            {
                 System.out.println("Exited wowwowowo");
                 exit = false;
-            }
-            break;
+                break;
 
             default:
-            {
                 System.out.println("No option for recent input");
-            }
         }
         return exit;
     }
@@ -204,27 +182,16 @@ public class ui
         switch(operation)
         {
             case 1:
-            {
-
-            }
-            break;
-
+                findUser();
+                break;
             case 2:
-            {
                 newUser();
-            }
-            break;
-
+                break;
             case 3:
-            {
                 deleteOperation();
-            }
-            break;
-
+                break;
             default:
-            {
                 System.out.println("Invalid selection...");
-            }
         }
     }
 
@@ -232,22 +199,19 @@ public class ui
     {
         int operation = 0;
         System.out.println("1. find");
-        System.out.println("2. make");
-        System.out.println("3. remove");
+        System.out.println("2. make/follow");
+        System.out.println("3. remove/unfollow");
         operation = input();
         switch(operation)
         {
             case 1:
-
                 break;
-            case 2: 
-                deleteEdgeOperation();
+            case 2:
+                addEdgeOperation();
                 break;
             case 3:
-
                 deleteEdgeOperation();
                 break;
-
             default:
                 System.out.println("Invalid selection...");
         }
@@ -310,11 +274,58 @@ public class ui
         }
     }
 
-    public void aggEdgeOperation()
+    public void addEdgeOperation()
     {
         char choice;
-
+        String name;
+        String name2;
+        System.out.print("Enter name to make connection: ");
+        name = stringInput();
+        System.out.print("Enter second User: ");
+        name2 = stringInput();
+        if(socialSim.userExist(name) && socialSim.userExist(name2))
+        {
+            System.out.print(name + " will follow " + name2 + "confirm? (y/n) ");
+            choice = choiceInput();
+            if(choice == 'y' || choice == 'Y')
+            {
+                socialSim.newConnection(name,name2);
+                System.out.println("Follow set: " + name + ":" + name2);
+            }
+            else
+            {
+                System.out.println("Follow set did not occur");
+            }
+        }
+        else
+        {
+            System.out.println("Error: " + name + "/" + name2 + "may not exist");
+        }
     }
+
+    public void findUser()
+    {
+        char choice;
+        String name;
+        System.out.print("Enter Username: " );
+        name = stringInput();
+        try
+        {
+            Person p = socialSim.get(name);
+            System.out.println(p.toString());
+            System.out.print("List followers? (y/n) ");
+            choice = choiceInput();
+            if(choice == 'Y' || choice == 'y')
+            {
+                socialSim.listFollowers(p);
+            }
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("User " + name + " does not exist.");
+        }
+    }
+
     public void newUser()
     {
         char choice;
@@ -336,8 +347,14 @@ public class ui
                 confirm = false;
             }
         }
-        socialSim.addUser(name);
-        System.out.println(name + " Is added into the network");
+        try
+        {
+            socialSim.addUser(name);
+            System.out.println(name + " Is added into the network");    
+        }
+        catch(IllegalArgumentException e)
+        {
+        }
     }
 
     public void deleteOperation()

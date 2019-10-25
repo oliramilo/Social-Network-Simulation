@@ -431,4 +431,24 @@ class HashTable implements Serializable
     {
         return hashArray[i].getItem();
     }
+
+    /*Return a set of object values from the hash table*/
+    public DSALinkedList Set()
+    {
+        DSALinkedList set = null;
+        if(!isEmpty())
+        {
+            set = new DSALinkedList();
+            for(int i=0;i<hashArray.length;i++)
+            {
+                if(hashArray[i] != null && hashArray[i].getState())
+                {
+                    set.insertLast(hashArray[i].getItem());
+                }
+            }
+        }
+        return set;
+    }
 }
+
+
