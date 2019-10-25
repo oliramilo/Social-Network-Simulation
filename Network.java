@@ -202,13 +202,36 @@ public class Network
         {
             p = (Person)Users.get(name);
             /*Iterate over the post and set them as deleted*/
-            DSALinkedList posts = p.getPosts();
+            DSALinkedList posts = p.getPosts(); 
+            removePerson(p);
             Users.remove(name);
             userCount--;
         }
         else
         {
             throw new IllegalArgumentException("Error occurred: " + Error.USER_ERR);
+        }
+    }
+
+    public void removePerson(Person p)
+    {
+        if(!p.getFollowing().isEmpty())
+        {
+            Person iter = null;
+            for(Object next:p.getFollowing())
+            {
+                iter = (Person)next;
+                iter.unFollowed(p);
+            }
+        }
+        if(!p.getFollowers().isEmpty())
+        {
+            Person iter = null;
+            for(Object next:p.getFollowers())
+            {
+                iter = (Person)next;
+                iter.unFollow(p);
+            }
         }
     }
 

@@ -278,8 +278,9 @@ class DSALinkedList implements Iterable, Serializable
             if(iter.getElement().equals(e))
             {
                 head = head.getNext();
-                head.setPrev(null);
+                //head.setPrev(null);
                 found = false;
+                size--;
             }
             else
             {

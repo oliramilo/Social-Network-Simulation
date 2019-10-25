@@ -1,0 +1,202 @@
+L:Hamm:P:Mr. PotatoHead:Ages three and up! It's on my box! Ages three and up! I'm not supposed to be babysitting Princess Drool!
+L:Rex:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Bo Peep:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Woody:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Woody:Buzz Lightyear
+L:Slinky Dog:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Lenny:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Alien1:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+L:Alien2:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien2:Buzz Lightyear
+L:Alien3:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien3:Buzz Lightyear
+L:Alien4:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien4:Buzz Lightyear
+L:Alien5:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien5:Buzz Lightyear
+L:Alien6:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien6:Buzz Lightyear
+L:Alien7:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien7:Buzz Lightyear
+L:Alien8:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien8:Buzz Lightyear
+L:Alien9:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien9:Buzz Lightyear
+L:Alien10:P:Buzz Lightyear:Greetings, I am Buzz Lightyear. I come in peace.
+F:Alien10:Buzz Lightyear
+L:Rex:P:Buzz Lightyear:To infininty and beyond!
+L:Bo Peep:P:Buzz Lightyear:To infininty and beyond!
+L:Woody:P:Buzz Lightyear:To infininty and beyond!
+L:Slinky Dog:P:Buzz Lightyear:To infininty and beyond!
+L:Lenny:P:Buzz Lightyear:To infininty and beyond!
+L:Alien1:P:Buzz Lightyear:To infininty and beyond!
+L:Alien2:P:Buzz Lightyear:To infininty and beyond!
+L:Alien3:P:Buzz Lightyear:To infininty and beyond!
+L:Alien4:P:Buzz Lightyear:To infininty and beyond!
+L:Alien5:P:Buzz Lightyear:To infininty and beyond!
+L:Alien6:P:Buzz Lightyear:To infininty and beyond!
+L:Alien7:P:Buzz Lightyear:To infininty and beyond!
+L:Alien8:P:Buzz Lightyear:To infininty and beyond!
+L:Alien9:P:Buzz Lightyear:To infininty and beyond!
+L:Alien10:P:Buzz Lightyear:To infininty and beyond!
+L:Woody:P:Bo Peep:I've got my moving buddy
+L:Slinky Dog:P:Bo Peep:I've got my moving buddy
+F:Slinky Dog:Bo Peep
+L:Rex:P:Bo Peep:I've got my moving buddy
+F:Rex:Bo Peep
+L:Lenny:P:Bo Peep:I've got my moving buddy
+F:Lenny:Bo Peep
+L:Bo Peep:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Slinky Dog:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Rex:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Lenny:P:Woody:And another thing, *stop* with this *spaceman* thing! It's getting on my nerves.
+L:Rex:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Bo Peep:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Woody:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Slinky Dog:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Lenny:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien1:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien2:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien3:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien4:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien5:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien6:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien7:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien8:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien9:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Alien10:P:Buzz Lightyear:How dare you open a spaceman's helmet on an uncharted planet! My eyeballs could've been sucked from their sockets!
+L:Bo Peep:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Slinky Dog:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Rex:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Lenny:P:Woody:BUZZ, LOOK, AN ALIEN!
+L:Rex:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Bo Peep:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Woody:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Slinky Dog:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Lenny:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien1:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien2:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien3:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien4:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien5:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien6:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien7:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien8:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien9:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Alien10:P:Buzz Lightyear:You are a sad, strange little man, and you have my pity.
+L:Bo Peep:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Slinky Dog:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Rex:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Lenny:P:Woody:Oh, yeah? Well, good riddance, ya loony!
+L:Rex:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Bo Peep:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Woody:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Slinky Dog:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Lenny:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien1:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien2:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien3:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien4:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien5:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien6:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien7:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien8:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien9:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien10:P:Buzz Lightyear:This is an intergalactic emergency. I need to commandeer your vessel to Sector 12. Who's in charge here?.
+L:Alien2:P:Alien1:The Claw!
+L:Alien3:P:Alien1:The Claw!
+L:Alien10:P:Alien1:The Claw!
+F:Alien10:Alien1
+L:Alien4:P:Alien1:The Claw!
+L:Alien5:P:Alien1:The Claw!
+L:Alien6:P:Alien1:The Claw!
+L:Alien7:P:Alien1:The Claw!
+L:Alien8:P:Alien1:The Claw!
+L:Alien9:P:Alien1:The Claw!
+L:Alien10:P:Alien3:The Claw!
+L:Alien2:P:Alien3:The Claw!
+L:Alien1:P:Alien3:The Claw!
+L:Alien4:P:Alien3:The Claw!
+L:Alien5:P:Alien3:The Claw!
+L:Alien6:P:Alien3:The Claw!
+L:Alien7:P:Alien3:The Claw!
+L:Alien8:P:Alien3:The Claw!
+L:Alien9:P:Alien3:The Claw!
+L:Alien2:P:Alien6:The Claw!
+L:Alien3:P:Alien6:The Claw!
+L:Alien10:P:Alien6:The Claw!
+L:Alien1:P:Alien6:The Claw!
+L:Alien4:P:Alien6:The Claw!
+L:Alien5:P:Alien6:The Claw!
+L:Alien7:P:Alien6:The Claw!
+L:Alien8:P:Alien6:The Claw!
+L:Alien9:P:Alien6:The Claw!
+L:Alien2:P:Alien8:The Claw!
+L:Alien3:P:Alien8:The Claw!
+L:Alien10:P:Alien8:The Claw!
+L:Alien1:P:Alien8:The Claw!
+L:Alien4:P:Alien8:The Claw!
+L:Alien5:P:Alien8:The Claw!
+L:Alien6:P:Alien8:The Claw!
+L:Alien7:P:Alien8:The Claw!
+L:Alien9:P:Alien8:The Claw!
+L:Alien2:P:Alien1:The claw is our master.
+L:Alien3:P:Alien1:The claw is our master.
+L:Alien10:P:Alien1:The claw is our master.
+L:Alien4:P:Alien1:The claw is our master.
+L:Alien5:P:Alien1:The claw is our master.
+L:Alien6:P:Alien1:The claw is our master.
+L:Alien7:P:Alien1:The claw is our master.
+L:Alien8:P:Alien1:The claw is our master.
+L:Alien9:P:Alien1:The claw is our master.
+L:Rex:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Bo Peep:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Woody:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Slinky Dog:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Lenny:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien1:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien2:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien3:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien4:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien5:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien6:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien7:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien8:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien9:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Alien10:P:Buzz Lightyear:You see the hat? I am Mrs. Nes-bitt!
+L:Scud:P:Sid:I'll have to perform one of my... operations!
+L:Rex:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Bo Peep:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Woody:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Slinky Dog:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Lenny:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien1:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien2:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien3:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien4:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien5:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien6:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien7:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien8:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien9:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Alien10:P:Buzz Lightyear:I don't believe that man's ever been to medical school!
+L:Janey:P:Hannah:Mom! Mom, have you seen my Sally doll? ... Never mind.
+L:Sally:P:Hannah:Mom! Mom, have you seen my Sally doll? ... Never mind.
+L:Mrs Nesbitt:P:Hannah:Mom! Mom, have you seen my Sally doll? ... Never mind.
+L:Bo Peep:P:Woody:Reach for the sky!
+L:Slinky Dog:P:Woody:Reach for the sky!
+L:Rex:P:Woody:Reach for the sky!
+L:Lenny:P:Woody:Reach for the sky!
+L:Bo Peep:P:Woody:This town ain't big enough for the two of us!
+L:Slinky Dog:P:Woody:This town ain't big enough for the two of us!
+L:Rex:P:Woody:This town ain't big enough for the two of us!
+L:Lenny:P:Woody:This town ain't big enough for the two of us!
+L:Scud:P:Sid:The Toys! The Toys are alive!
+L:Bo Peep:P:Woody:Hey, Buzz! You're flying!
+L:Slinky Dog:P:Woody:Hey, Buzz! You're flying!
+L:Rex:P:Woody:Hey, Buzz! You're flying!
+L:Lenny:P:Woody:Hey, Buzz! You're flying!
+L:Bo Peep:P:Woody:To infinity and beyond!
+L:Slinky Dog:P:Woody:To infinity and beyond!
+L:Rex:P:Woody:To infinity and beyond!
+L:Lenny:P:Woody:To infinity and beyond!
