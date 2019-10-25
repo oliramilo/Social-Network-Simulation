@@ -25,7 +25,6 @@ public class eventFileReader
                 }
                 catch(IllegalArgumentException ex)
                 {
-                    System.out.println("Error occured at line" + count);
                 }
                 line = bfr.readLine();
                 count++;

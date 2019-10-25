@@ -67,7 +67,7 @@ public class Network
 
             else
             {
-                System.out.print("User " + name + " exists");
+                System.out.println("User " + name + " exists");
                 throw new IllegalArgumentException("Error occurred: " + Error.USER_DUP_ERR);
             }
         }
