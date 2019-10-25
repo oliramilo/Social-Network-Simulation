@@ -19,23 +19,19 @@ public class Network
     public void displayFollowers(String name)
     {
         Person p = (Person)Users.get(name);
-        if(p != null)
-        {
-            if(!p.getFollowers().isEmpty())
+        if(p != null && (!p.getFollowers().isEmpty())
+            System.out.println("Followers of: " + name);
+            for(Object iter:p.getFollowers())
             {
-                System.out.println("Followers of: " + name);
-                for(Object iter:p.getFollowers())
+                Person next = (Person)iter;
+                if(userExist(next.getName()))
                 {
-                    Person next = (Person)iter;
-                    if(userExist(next.getName()))
-                    {
-                        System.out.println(next.toString());
-                    }
+                    System.out.println(next.toString());
                 }
             }
         }
     }
-    /**/
+
     public Network()
     {
         userCount = 0;
@@ -186,6 +182,7 @@ public class Network
         return personInfo;
     }
 
+    //Idk what this does, im too scared to delete though
     public void test(int i)
     {
         Person user = (Person)Users.check(i);
@@ -193,7 +190,9 @@ public class Network
         System.out.println(s);
     }
 
-    /*removes user from the network hashtable and linkedlist of people*/
+    /*removes user from the network hashtable and linkedlist of people
+     * removing a Person from the hashtable is (or close to) O(1) as their names 
+     * are key values for hash-indexing*/
     public void removeUser(String name)
     {
         Person p = null;
@@ -213,7 +212,12 @@ public class Network
         }
     }
 
-    public void removePerson(Person p)
+    /*Used for when a person is removed from the Hashtable of Person,
+     * their followers and who they're following must be removed from their
+     * following/follower list, time complexity is O(n+k) as it has to
+     * iterate through the list of following (n) and the list of 
+     * followers (k)*/
+    private void removePerson(Person p)
     {
         if(!p.getFollowing().isEmpty())
         {
@@ -775,7 +779,8 @@ public class Network
         return alreadyLiked;
     }
 
-    /*Returns null if the network is empty  */
+    /*Returns null if the network is empty, else returns a Queue of strings
+     * to save the network contents in a file for saving/loading*/
     public DSAQueue networkContents()
     {
         DSAQueue networkString = null;
