@@ -16,23 +16,6 @@ public class Network
     private int userCount;
     private int postCount;
 
-    public void displayFollowers(String name)
-    {
-        Person p = (Person)Users.get(name);
-        if(p != null && (!p.getFollowers().isEmpty()))
-        {
-            System.out.println("Followers of: " + name);
-            for(Object iter:p.getFollowers())
-            {
-                Person next = (Person)iter;
-                if(userExist(next.getName()))
-                {
-                    System.out.println(next.toString());
-                }
-            }
-        }
-    }
-
     public Network()
     {
         userCount = 0;
@@ -325,7 +308,8 @@ public class Network
 
     }
 
-    /*Lists the followers of Person p parameter */
+    /*Lists the followers of Person p parameter by
+     * iterating over the linkedlist of followers Person p has*/
     public void listFollowers(Person p)
     {
         DSALinkedList followers = p.getFollowers();
@@ -345,15 +329,46 @@ public class Network
         }
     }
 
-    /*Prints out the lists of posts from most likes to the lowest.*/
+    /*Used for Interactive mode, performs the same function as listFollowers() but
+     * the parameter taken in by this function is a String. This function checks 
+     * the hashtable if the String import hashes into a existing 
+     * object and displays the followers by iterating over the linked list of followers
+     * Person p has*/
+    public void displayFollowers(String name)
+    {
+        Person p = (Person)Users.get(name);
+        if(p != null && (!p.getFollowers().isEmpty()))
+        {
+            System.out.println("Followers of: " + name);
+            //For each loop is used to iterate over the linked list
+            for(Object iter:p.getFollowers())
+            {
+                //Type cast the stored object back into a Person object
+                Person next = (Person)iter;
+                if(userExist(next.getName()))
+                {
+                    System.out.println(next.toString());
+                }
+            }
+        }
+    }
+
+
+    /*Prints out the lists of posts from most likes to the lowest.
+     * Time complexity of O(nlog(n) +nlog(n)), it has to iterate over the linked list
+     * to and add each item into the priority queue and removed again which takes
+     * another O(nlog(n))*/
     public void listPost()
     {
         Post p = null;
         if(!postList.isEmpty())
         {
+            //Store the items into a max priority queue
             PriorityQueue list = postOrder();
             while(!list.isEmpty())
             {
+                /*Keep calling the remove function to remove items from
+                 * highest to lowest*/
                 p = (Post)list.remove();
                 System.out.println(p.toString());
             }
@@ -728,7 +743,9 @@ public class Network
         p.setFollowing(updateFollowing);
     }
 
-    /*Method Specific only for private inner classes*/
+    /*Method Specific only for private inner classes, 
+     * sets Person p to follow Person v by adding each other to their 
+     * linkedlist of followers and following list*/
     private void setFollow(Person p, Person v)
     {
         if(!alreadyFollowing(p, v))
@@ -807,16 +824,10 @@ public class Network
         return networkString;
     }
 
-    /*Network Class will contain the pool of posts from users
-      This way, accessing Posts from users will be easier
-
-      Post class will have a Person Object representing
-      The original poster, Status is the post message
-      A linked list is used to keep a list of users who liked the post
-      It would've been easier and faster to just return the size
-      of the likedBy list rather than have a like counter for the post
-      But for when deletion comes, setting the list to null would cause
-      the size calling to be prone to NPEs. Hence why there is a counter*/
+    /*Network Class will contain a linkedlist of posts from users
+     * This way, accessing Posts from users will be easier, rather 
+     * than having to check each person object for their linked list of posts
+     * as a person vertex may not have made a post.*/
 
     private class Post
     {
@@ -878,6 +889,7 @@ public class Network
         {
             return op;
         }
+
         //This is used when a post is deleted
         //Import will often be 0
 
