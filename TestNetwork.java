@@ -44,22 +44,22 @@ public class TestNetwork
 //        testOrder();
        // testOrder2();
         //testTimeStep(100, 100);
-        long testRun[] = new long[10];
-        for(int i =0;i<10;i++)
+        long testRun[] = new long[1000];
+        for(int i =0;i<1000;i++)
         {
             testRun[i] = runTimeTest(100, 100);
         }
         System.out.println("Testing iterative search");
-        for(int i=0;i<10;i++)
+        for(int i=0;i<1000;i++)
         {
             System.out.println("Time for test " + i + ": " + testRun[i]);
         }
         double avg=0;
-        for(int i=0;i<10;i++)
+        for(int i=0;i<1000;i++)
         {
             avg+=testRun[i];
         }
-        System.out.print("Average is " + (avg/10));
+        System.out.print("Average is " + (avg/1000));
     }
 
 
@@ -237,8 +237,6 @@ public class TestNetwork
         Network n = new Network();
         fill(n);
         eventFileReader.readFile("networkTS1b.txt", n);
-        eventFileReader.readFile("eventsTS1.txt", n);
-        n.timeStep(k, m);
         eventFileReader.readFile("eventsTS1b.txt", n);
         n.timeStep(k, m);
         n.display();

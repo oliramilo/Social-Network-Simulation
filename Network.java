@@ -19,7 +19,8 @@ public class Network
     public void displayFollowers(String name)
     {
         Person p = (Person)Users.get(name);
-        if(p != null && (!p.getFollowers().isEmpty())
+        if(p != null && (!p.getFollowers().isEmpty()))
+        {
             System.out.println("Followers of: " + name);
             for(Object iter:p.getFollowers())
             {
@@ -63,7 +64,7 @@ public class Network
 
             else
             {
-                System.out.println("User " + name + " exists");
+                System.out.println("Error: User " + name + " already exists");
                 throw new IllegalArgumentException("Error occurred: " + Error.USER_DUP_ERR);
             }
         }
@@ -554,7 +555,7 @@ public class Network
             for(Object iter:Users.Set())
             {
                 p = (Person)iter;
-                //Skip dead objects
+                //Skip removed objects
                 if(userExist(p.getName()))
                 {
                     toQueue.add(p.getPopularity(), p);
@@ -592,7 +593,6 @@ public class Network
                         Person followerOfOP = (Person)iterVertex;
 
                         DSAQueue event = new Queue();
-                        System.out.println("Performing a breadth first search...");
                         orderList.enQueue(breadthFirstSearch(followerOfOP, p , event, k, n));
                     }
                 }
@@ -623,7 +623,6 @@ public class Network
                 if(!alreadyLiked(p, pPost) && !p.equals(pPost.getOP()))
                 {
                     String e = ("L:"+p.getName() + ":P:" + pPost.getOP().getName() + ":" + pPost.getMessage());
-                    System.out.println(e);
                     event.enQueue(e);
                     p.setLiked(pPost);
                     pPost.like(p);
@@ -636,7 +635,6 @@ public class Network
                     if(!p.equals(pPost.getOP()) && !alreadyFollowing(p, pPost.getOP()))
                     {
                         String e2 = ("F:"+ p.getName() + ":" + pPost.getOP().getName());
-                        System.out.println(e2);
                         event.enQueue(e2);
                         setFollow(p, pPost.getOP());
                     }
