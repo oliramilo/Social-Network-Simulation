@@ -3,18 +3,20 @@ import java.io.*;
 class HashTable implements Serializable
 {
     private static final long serialVersionUID = 1L;
+    /*Private inner class hashItem that will store a String key,
+     * state, and value of the object*/
     private class hashItem implements Serializable
     {
         private static final long serialVersionUID = 1L;
         private String key;
         private Object item;
-        private boolean state;
+        private char state;
 
         public hashItem(String key,Object item)
         {
             this.key = key;
             this.item = item;
-            this.state = true;
+            this.state = 't';
         }
 
         public Object getItem()
@@ -29,10 +31,10 @@ class HashTable implements Serializable
 
         public void setState()
         {
-            this.state = false;
+            this.state = 'f';
         }
 
-        public boolean getState()
+        public char getState()
         {
             return this.state;
         }
@@ -65,7 +67,7 @@ class HashTable implements Serializable
         int stepSize = stepSize(hashKey);
 
         //Empty spot for insertion
-        if(hashArray[hashKey] == null || hashArray[hashKey].getState() == false)
+        if(hashArray[hashKey] == null || hashArray[hashKey].getState() == 'f')
         {
             hashArray[hashKey] = item;
         }
@@ -74,7 +76,7 @@ class HashTable implements Serializable
         else
         {
             //Search for a spot in the array to fill in
-            while(hashArray[hashKey] != null && hashArray[hashKey].getState() == true)
+            while(hashArray[hashKey] != null && hashArray[hashKey].getState() == 't')
             {
                 hashKey += stepSize;
                 hashKey %= hashArray.length;
@@ -99,7 +101,7 @@ class HashTable implements Serializable
           array if it isn't null and contains marked items deleted or 
           live objects*/
         if(hashArray[hashKey] != null && hashArray[hashKey].getKey().equals(key) 
-                                            && hashArray[hashKey].getState() == true)
+                                            && hashArray[hashKey].getState() == 't')
         {
             hashArray[hashKey].setState();
             count--;
@@ -114,7 +116,7 @@ class HashTable implements Serializable
             {
                 /*The state of the item needs to be checked
                   If its been deleted or not, key also needs to be compared*/
-                if(hashArray[hashKey].getState() == true && 
+                if(hashArray[hashKey].getState() == 't' && 
                             hashArray[hashKey].getKey().equals(key))
                 {
                     hashArray[hashKey].setState();
@@ -141,17 +143,19 @@ class HashTable implements Serializable
         hashItem obj = find(key);
         Object item  = null;
         //function called find returns null if the item doesnt exist
-        if(obj != null && obj.getState())
+        if(obj != null && obj.getState() == 't')
         {
             item = obj.getItem();
         }
         return item;
     }
 
+    /*Method returns a boolean T/F if the String parameter hashes into a cell
+     * space of a non-null/active object value*/
     public boolean hasItem(String item)
     {
         hashItem itemSpace = find(item);
-        return  itemSpace != null && itemSpace.getState() == true;
+        return  itemSpace != null && itemSpace.getState() == 't';
     }
 
     //function thats finds 
@@ -165,7 +169,7 @@ class HashTable implements Serializable
         //containing value is false
         //Stop looping if item is found
         //Returns null if item is not found
-        while(hashArray[hashVal] != null && hashArray[hashVal].getState() !=false 
+        while(hashArray[hashVal] != null && hashArray[hashVal].getState() != 'f' 
                                                         && found == false)
         {
             if(hashArray[hashVal].getKey().equals(key))
@@ -212,13 +216,13 @@ class HashTable implements Serializable
             //Transfer items from the old array into the new one
             for(int i=0;i<hashArray.length;i++)
             {
-                if(hashArray[i] != null && hashArray[i].getState() == true)
+                if(hashArray[i] != null && hashArray[i].getState() == 't')
                 {
                     //Rehashing is required for each item in the old array and 
                     //placed into the new one
                     newHashIdx = hashKey(hashArray[i].getKey(),newHashTable.length);
                     stepSize = stepSize(newHashIdx);
-                    while(newHashTable[newHashIdx] != null && newHashTable[newHashIdx].getState() == true)
+                    while(newHashTable[newHashIdx] != null && newHashTable[newHashIdx].getState() == 't')
                     {
                         newHashIdx +=stepSize;
                         newHashIdx %=newHashTable.length;
@@ -316,13 +320,13 @@ class HashTable implements Serializable
             hashItem[] newArray = new hashItem[this.primeSize];
             for(int i=0;i<hashArray.length;i++)
             {
-                if(hashArray[i] != null && hashArray[i].getState() != false)
+                if(hashArray[i] != null && hashArray[i].getState() != 'f')
                 {
                     /*Require to re hash each item in the old table
                       and place it in the new one of a different size*/
                     newHashIdx = hashKey(hashArray[i].getKey(), newArray.length);
                     stepSize = stepSize(newHashIdx);
-                    while(newArray[newHashIdx] != null && newArray[newHashIdx].getState() != false)
+                    while(newArray[newHashIdx] != null && newArray[newHashIdx].getState() != 'f')
                     {
                         newHashIdx += stepSize;
                         newHashIdx %= newArray.length;
@@ -357,7 +361,7 @@ class HashTable implements Serializable
         String[] s = new String[count];
         while(i<hashArray.length-1)
         {
-            if(hashArray[i] != null && hashArray[i].getState() != false)
+            if(hashArray[i] != null && hashArray[i].getState() != 'f')
             {
 
                 s[items] = hashArray[i].toString();
@@ -420,7 +424,7 @@ class HashTable implements Serializable
     {
         for(int i=0;i<hashArray.length;i++)
         {
-            if(hashArray[i] != null && hashArray[i].getState() != false)
+            if(hashArray[i] != null && hashArray[i].getState() != 'f')
             {
                 System.out.println("Item exists in " + i);
             }
@@ -441,7 +445,7 @@ class HashTable implements Serializable
             set = new DSALinkedList();
             for(int i=0;i<hashArray.length;i++)
             {
-                if(hashArray[i] != null && hashArray[i].getState())
+                if(hashArray[i] != null && hashArray[i].getState() == 't')
                 {
                     set.insertLast(hashArray[i].getItem());
                 }
