@@ -28,25 +28,37 @@ public class UnitTestTime
 
     public static long testToyStory()
     {
-        Network n = new Network();
-        eventFileReader.readFile("networkTS1b.txt",n);
-        eventFileReader.readFile("eventsTS1b.txt",n);
-        long start = System.nanoTime();
-        n.timeStep(100,100);
-        long end = System.nanoTime();
-        long elapsed = end - start;
+        long elapsed = 0;
+        long end = 0;
+        long start = 0;
+        try
+        {
+            Network n = new Network();
+            eventFileReader.readFile("networkTS1b.txt",n);
+            eventFileReader.readFile("eventsTS1b.txt",n);
+            start = System.nanoTime();
+            n.timeStep(100,100);
+            end = System.nanoTime();
+            elapsed = end - start;
+        }
+        catch(IllegalArgumentException e)
+        {
+        }
         return elapsed;
     }
 
     public static long testDoReMi()
     {
+        long start=0;
+        long end=0;
+        long elapsed=0;
         Network n = new Network();
         eventFileReader.readFile("NetworkDRM.txt",n);
         eventFileReader.readFile("EventsDRM2.txt",n);
-        long start = System.nanoTime();
+        start = System.nanoTime();
         n.timeStep(100,100);
-        long end = System.nanoTime();
-        long elapsed = end - start;
+        end = System.nanoTime();
+        elapsed = end - start;
         return elapsed;
     }
 
