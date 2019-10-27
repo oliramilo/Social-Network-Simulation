@@ -140,6 +140,8 @@ public class Network
         }
     }
 
+    /*Retrieves a Person class from the HashTable, each person object in the 
+     * Hashtable is distinguished by their user name*/
     public Person get(String name)
     {
         Person toGet = null;
@@ -154,7 +156,8 @@ public class Network
         return toGet;
     }
 
-    /*Function for finding users in the Network by their name*/
+    /*Function for finding users in the Network by their name, fails if user
+     * is not in the Network*/
     public String find(String name)
     {
         Person toFind = null;
@@ -171,13 +174,13 @@ public class Network
         return personInfo;
     }
 
-    //Idk what this does, im too scared to delete though
-    public void test(int i)
+    //Idk what this does
+    /*public void test(int i)
     {
         Person user = (Person)Users.check(i);
         String s = user.toString();
         System.out.println(s);
-    }
+    }*/
 
     /*removes user from the network hashtable and linkedlist of people
      * removing a Person from the hashtable is (or close to) O(1) as their names 
@@ -523,6 +526,7 @@ public class Network
     /*Goes over the linkedlist of users and compares with the
      *active users in the hashtable of users, hashtable returns null if 
      *user does not exist/deleted*/
+    //OLD CODE, MIGHT DELETE LATER
     /*public void clearFollowers()
     {
         update();
@@ -539,6 +543,7 @@ public class Network
         }
     }*/
 
+    //OLD CODE, MAY DELETE LATER
     /*Update to remove followers from active users, a DFS approach*/
     /*private void depthFirstSearch(Person p, HashTable visited)
     {
@@ -593,7 +598,6 @@ public class Network
     public DSAQueue timeStep(int k,int n)
     {
         //Update the linkedlist and HashTable before time stepping 
-        update();
         DSAQueue orderList = new Queue();
         /*Iterate over the post of linkedlists */
         for(Object iter:postList)

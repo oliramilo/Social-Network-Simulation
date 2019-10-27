@@ -99,7 +99,6 @@ public class UnitTestNetwork
         {
 
             System.out.println("Test passed, Kira was deleted");
-            n.clearFollowers();
             n.timeStep(100,100);
             n.listUser();
             n.display();
