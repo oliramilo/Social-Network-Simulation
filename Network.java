@@ -816,8 +816,9 @@ public class Network
         DSAQueue networkString = null;
         if(!Users.isEmpty() || !postList.isEmpty())
         {
+            DSALinkedList userList= Users.Set();
             networkString = new Queue();
-            for(Object iter:Users.Set())
+            for(Object iter:userList)
             {
                 Person person = (Person)iter;
                 if(userExist(person.getName()))
@@ -826,10 +827,37 @@ public class Network
                 }
             }
 
+
             for(Object iter:postList)
             {
                 Post post = (Post)iter;
-                networkString.enQueue("P:"+ post.getOP() + ":" + post.getMessage());
+                networkString.enQueue("P:"+ post.getOP().getName() + ":" + post.getMessage());
+            }
+
+            Person v = null;
+            for(Object iter:userList)
+            {
+                v = (Person)iter;
+                if(!v.getFollowers().isEmpty())
+                {
+                    String save;
+                    Person e = null;
+                    for(Object it:v.getFollowers())
+                    {
+                        e=(Person)it;
+                        networkString.enQueue("F:"+v.getName()+":"+e.getName());
+                    }
+                }
+                if(!v.getFollowing().isEmpty())
+                {
+                    String save;
+                    Person e = null;
+                    for(Object it:v.getFollowing())
+                    {
+                        e=(Person)it;
+                        networkString.enQueue("F:"+e.getName()+":"+v.getName());
+                    }
+                }
             }
         }
         else

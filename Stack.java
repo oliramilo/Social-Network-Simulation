@@ -1,3 +1,4 @@
+/*Stack data structure implementation from the practicals ,nothing has been modified*/
 import java.io.*;
 import java.util.*;
 public class Stack extends DSAStack implements Iterable, Serializable

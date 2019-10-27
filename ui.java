@@ -259,6 +259,7 @@ public class ui
         System.out.println("Operation executed: " + elapsed + "ms");
     }
 
+    //Save network to a file
     public void save()
     {
         try
@@ -273,15 +274,20 @@ public class ui
         }
     }
 
+    /*Creates an edge/follow between user1 and user2*/
     private void addEdgeOperation()
     {
         char choice;
         String name;
         String name2;
+        /*User inputs for entering user names of the people we want to make a
+         * connection to*/
         System.out.print("Enter name to make connection: ");
         name = stringInput();
         System.out.print("Enter second User: ");
         name2 = stringInput();
+        /*Check if both users exist within the graph as get a null user
+         * throws exception*/
         if(socialSim.userExist(name) && socialSim.userExist(name2))
         {
             System.out.print(name + " will follow " + name2 + "confirm? (y/n) ");
@@ -290,9 +296,11 @@ public class ui
             {
                 try
                 {
+                    //Connection will occur and the edges will be created for the follow
                     socialSim.newConnection(name,name2);
                     System.out.println("Follow set: " + name + ":" + name2);
                 }
+                //Exception is caught for when the link already exists
                 catch(IllegalArgumentException e)
                 {
                     System.out.println(e.getMessage());
@@ -309,6 +317,7 @@ public class ui
         }
     }
 
+    /*Finds user/vertex in the network, optional to display the user followers*/
     private void findUser()
     {
         char choice;
@@ -317,8 +326,10 @@ public class ui
         name = stringInput();
         try
         {
+            //retrieve the person class from the the hashtable, vai hash indexing
             Person p = socialSim.get(name);
             System.out.println(p.toString());
+            //optional display followers of the Vertex
             System.out.print("List followers? (y/n) ");
             choice = choiceInput();
             if(choice == 'Y' || choice == 'y')
@@ -326,12 +337,14 @@ public class ui
                 socialSim.listFollowers(p);
             }
         }
+        //Exception caught for when user does not exist
         catch(IllegalArgumentException e)
         {
             System.out.println("User " + name + " does not exist.");
         }
     }
 
+    /*Method for creating new user*/
     private void newUser()
     {
         char choice;
@@ -341,6 +354,7 @@ public class ui
         boolean confirm = true;
         while(confirm)
         {
+            //Make user confirm y/n for adding the name to the network
             System.out.println(name + " will be the name.\nConfirm? (y/n)");
             choice = choiceInput();
             if(choice == 'n' || choice == 'N')
@@ -353,6 +367,7 @@ public class ui
                 confirm = false;
             }
         }
+        //Add user to network, it will fail if the user already exists
         try
         {
             socialSim.addUser(name);
@@ -364,6 +379,7 @@ public class ui
         }
     }
 
+    /*Method for deleting users in the network*/
     private void deleteOperation()
     {
         char choice;
@@ -373,10 +389,13 @@ public class ui
         boolean confirm = true;
         try
         {
+            //Find and Print out the user name, will throw an exception if the user does not 
+            //exist
             System.out.println(socialSim.find(name));
             System.out.println("Removing " + name + " from the network" 
                                     + " are you sure? (y/n)");
             choice = choiceInput();
+            //upon confirmation the user name will be deleted from the vertex 
             if(choice == 'y' || choice == 'Y')
             {
                 socialSim.removeUser(name);
@@ -389,6 +408,7 @@ public class ui
         }
     }
 
+    /*Removes the links/follow between user1 and user2 in the graph*/
     private void deleteEdgeOperation()
     {
         char choice;
@@ -404,6 +424,7 @@ public class ui
             System.out.println(socialSim.find(name2));
             System.out.println("Are you sure you want to delete edge? (y/n)");
             choice = choiceInput();
+            //Upon confirmation the user links will be removed, name will unfollow name2
             if(choice == 'y' || choice == 'Y')
             {
                 socialSim.removeConnection(name,name2);
@@ -413,13 +434,14 @@ public class ui
                 System.out.println("Failed to delete edge");
             }
         }
-
+        //Exception is caught for when either users do not exist in the Network
         catch(IllegalArgumentException e)
         {
             System.out.println("Cannot find users in the network");
         }
     }
 
+    //Displays the menu choices for the main menu screen
     private void menuChoice()
     {
         System.out.println("\n(1) Load Network");
