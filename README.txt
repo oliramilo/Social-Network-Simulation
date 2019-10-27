@@ -60,4 +60,5 @@ Network.java:
     timeStep() takes in 2 integers representing prob_like and prob_foll
     respectively. This function is a nested for-each loop that iterates
     over the list of posts and the followers of the original poster,
-    calling a breadthFirstSearch
+    calling a breadthFirstSearch giving all adjacent nodes of the
+    original poster a chance to like the post.

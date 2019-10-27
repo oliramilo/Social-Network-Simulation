@@ -63,10 +63,17 @@ public class Network
             p = (Person)Users.get(user1);
             p2 = (Person)Users.get(user2);
             //Check if Person p has not followed Person p2
-            if(!alreadyFollowing(p, p2))
+            if(!p.equals(p2))
             {
-                p2.newFollower(p);
-                p.followed(p2);
+                if(!alreadyFollowing(p, p2))
+                {
+                    p2.newFollower(p);
+                    p.followed(p2);
+                }    
+            }
+            else
+            {
+                throw new IllegalArgumentException("User cannot follow themselves");
             }
         }
 
@@ -749,6 +756,10 @@ public class Network
         {
             v.newFollower(p);
             p.followed(v);
+        }
+        else
+        {
+            throw new IllegalArgumentException("User: " + v.getName() + "already following " + p.getName());        
         }
     }
 

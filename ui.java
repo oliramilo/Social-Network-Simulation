@@ -288,8 +288,15 @@ public class ui
             choice = choiceInput();
             if(choice == 'y' || choice == 'Y')
             {
-                socialSim.newConnection(name,name2);
-                System.out.println("Follow set: " + name + ":" + name2);
+                try
+                {
+                    socialSim.newConnection(name,name2);
+                    System.out.println("Follow set: " + name + ":" + name2);
+                }
+                catch(IllegalArgumentException e)
+                {
+                    System.out.println(e.getMessage());
+                }
             }
             else
             {
@@ -353,6 +360,7 @@ public class ui
         }
         catch(IllegalArgumentException e)
         {
+            System.out.println("User: " + name + " already exists");
         }
     }
 
