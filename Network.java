@@ -278,14 +278,6 @@ public class Network
         return (p != null);
     }
 
-    /*Method is used for updating when an event occurs
-      Such as a User liking a post, their followers need to be notified
-      If event is triggered */
-    public void onEvent(boolean b)
-    {
-
-    }
-
     //Returns the user count in the network
     public int userCount()
     {
@@ -776,6 +768,8 @@ public class Network
         Person w = null;
         DSALinkedList pFollowing = p.getFollowing();
         boolean alreadyFollowed = false;
+        //iterate over the following people person p is following
+        //return true is p is already following v
         for(Object next:pFollowing)
         {
             w = (Person)next;
@@ -814,6 +808,8 @@ public class Network
     public DSAQueue networkContents()
     {
         DSAQueue networkString = null;
+        //check if post or users is empty
+        //if both are empty, saving network will not occur
         if(!Users.isEmpty() || !postList.isEmpty())
         {
             DSALinkedList userList= Users.Set();
@@ -827,7 +823,7 @@ public class Network
                 }
             }
 
-
+            //Iterate over the post list and save them as strings to a queue
             for(Object iter:postList)
             {
                 Post post = (Post)iter;
@@ -835,9 +831,12 @@ public class Network
             }
 
             Person v = null;
+            //Iterate over every person and save their followers and following
             for(Object iter:userList)
             {
                 v = (Person)iter;
+                //Check if the follower list is empty then
+                //Iterate over the person follower list
                 if(!v.getFollowers().isEmpty())
                 {
                     String save;
@@ -848,6 +847,8 @@ public class Network
                         networkString.enQueue("F:"+v.getName()+":"+e.getName());
                     }
                 }
+                //Check if the following list is empty then
+                //Iterate over the person following list
                 if(!v.getFollowing().isEmpty())
                 {
                     String save;
@@ -874,9 +875,13 @@ public class Network
 
     private class Post
     {
+        //Person object
         private Person op;
+        //message
         private String status;
+        //list of users who like the post
         private DSALinkedList likedBy;
+        //Determines the likelhood of liking a post
         private int clickBaitFactor;
         public Post(String name, String message)
         {
@@ -893,6 +898,7 @@ public class Network
             }
         }
 
+        //For reading event files, containing click bait factors for messages
         public Post(String name, String message,int clickBaitFactor)
         {
             op = (Person)Users.get(name);
@@ -918,16 +924,19 @@ public class Network
             likedBy.insertLast(p);
         }
 
+        //return the number of likes the post has
         public int getLikes()
         {
             return likedBy.size();
         }
 
+        //return the click bait factor of the post
         public int getClickBaitFactor()
         {
             return clickBaitFactor;
         }
 
+        //return the object person of the post
         public Person getOP()
         {
             return op;
@@ -954,11 +963,13 @@ public class Network
             return Users.get(op.getName()) == null;
         }
 
+        //return the file string content for saving
         public String toFileString()
         {
             return ("P:" + op.getName() + ":" + getMessage());
         }
 
+        //for displaying network posts
         public String toString()
         {
             return (op.getName()+ ": " + status + "\n" + getLikes() + " Liked this post");

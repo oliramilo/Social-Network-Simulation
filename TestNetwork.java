@@ -1,3 +1,5 @@
+/*Network tester for all the functions, if a function fails to execute, a stack trace is displayed for the error
+ * other wise all test passes*/
 public class TestNetwork
 {
     public static void main (String [] args)
@@ -31,6 +33,7 @@ public class TestNetwork
             }
             catch(Exception e)
             {
+                e.printStackTrace();
             }
 
             try
