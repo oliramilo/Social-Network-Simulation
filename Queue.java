@@ -1,3 +1,4 @@
+/*Queue Class implemented from the DSA prac tutorials*/
 import java.util.*;
 import java.io.*;
 public class Queue extends DSAQueue implements Iterable, Serializable

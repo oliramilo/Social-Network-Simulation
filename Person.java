@@ -88,46 +88,55 @@ public class Person
         }
     }
 
+    //Return the popularity of the person by their follower linked list size
     public int getPopularity()
     {
         return followers.size();
     }
 
+    //Returns the number of people current person is following
     public int usersFollowed()
     {
         return following.size();
     }
 
+    //Retunrs the linked list of posts the person class has made
     public DSALinkedList getPosts()
     {
         return this.posts;
     }
 
+    //Returns the post size count of the person class
     public int totalPosts()
     {
         return posts.size();
     }
 
+    //Returns the linked list of followers 
     public DSALinkedList getFollowers()
     {
         return followers;
     }
 
+    //Returns the linked list of people current person is following
     public DSALinkedList getFollowing()
     {
         return following;
     }
 
+    //Returns the linked list of posts the user has liked
     public DSALinkedList getPostsLiked()
     {
         return likedPosts;
     }
 
+    //Return name of the user
     public String getName()
     {
         return this.name;
     }
 
+    //Standard toString for printing out user information
     public String toString()
     {
         return ("User: " + name + ", Following "+ usersFollowed() + " others, " + getPopularity() + " current followers, " + "Total posts: " + totalPosts());

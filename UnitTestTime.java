@@ -1,3 +1,5 @@
+/*Class test file for comparing the different network files and their time 
+ * step speed*/
 public class UnitTestTime
 {
     public static void main (String args[])
@@ -36,9 +38,9 @@ public class UnitTestTime
             Network n = new Network();
             eventFileReader.readFile("networkTS1b.txt",n);
             eventFileReader.readFile("eventsTS1.txt",n);
-            start = System.currentTimeMillis();
+            start = System.nanoTime();
             n.timeStep(100,100);
-            end = System.currentTimeMillis();
+            end = System.nanoTime();
             elapsed = end - start;
         }
         catch(IllegalArgumentException e)
@@ -55,9 +57,9 @@ public class UnitTestTime
         Network n = new Network();
         eventFileReader.readFile("NetworkDRM.txt",n);
         eventFileReader.readFile("EventsDRM2.txt",n);
-        start = System.currentTimeMillis();
+        start = System.nanoTime();
         n.timeStep(100,100);
-        end = System.currentTimeMillis();
+        end = System.nanoTime();
         elapsed = end - start;
         return elapsed;
     }
@@ -67,9 +69,9 @@ public class UnitTestTime
         Network n = new Network();
         eventFileReader.readFile("network1.txt",n);
         eventFileReader.readFile("events1.txt",n);
-        long start = System.currentTimeMillis();
+        long start = System.nanoTime();
         n.timeStep(100,100);
-        long end = System.currentTimeMillis();
+        long end = System.nanoTime();
         long elapsed = end - start;
         return elapsed;
     }

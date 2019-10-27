@@ -646,6 +646,7 @@ public class Network
                 if(!alreadyLiked(p, pPost) && !p.equals(pPost.getOP()))
                 {
                     String e = ("L:"+p.getName() + ":P:" + pPost.getOP().getName() + ":" + pPost.getMessage());
+                    System.out.println(e);
                     event.enQueue(e);
                     p.setLiked(pPost);
                     pPost.like(p);
@@ -658,6 +659,7 @@ public class Network
                     if(!p.equals(pPost.getOP()) && !alreadyFollowing(p, pPost.getOP()))
                     {
                         String e2 = ("F:"+ p.getName() + ":" + pPost.getOP().getName());
+                        System.out.println(e2);
                         event.enQueue(e2);
                         setFollow(p, pPost.getOP());
                     }
@@ -794,6 +796,7 @@ public class Network
         {
             listOfLikes = p.getPostsLiked();
             Post liked = null;
+            //Iterate over the like of likes checking if the post object exists in the linked list
             for(Object next:listOfLikes)
             {
                 liked = (Post)next;

@@ -62,3 +62,8 @@ Network.java:
     over the list of posts and the followers of the original poster,
     calling a breadthFirstSearch giving all adjacent nodes of the
     original poster a chance to like the post.
+
+Person.java:
+    Person class contains the String name of the vertex Person, their followers,
+    who they're following and their posts content stored in a linked list.
+

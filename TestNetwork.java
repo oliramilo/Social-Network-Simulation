@@ -2,57 +2,66 @@ public class TestNetwork
 {
     public static void main (String [] args)
     {
-        testSimulation("test.txt", 100, 100);
         try
         {
-            testPerson();
-            System.out.println("Test passed");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+            testSimulation("test.txt", 100, 100);
+            try
+            {
+                testPerson();
+                System.out.println("Test passed");
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
 
-        try
-        {
-            testNetwork();
-            System.out.println("Test passed");
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+            try
+            {
+                testNetwork();
+                System.out.println("Test passed");
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
 
-        try
-        {
-            testRandom(10, 25);
-        }
-        catch(Exception e)
-        {
-        }
+            try
+            {
+                testRandom(10, 25);
+            }
+            catch(Exception e)
+            {
+            }
 
-        try
-        {
-            testDelete();
-        }
-        catch(Exception e)
-        {
-        }
+            try
+            {
+                testDelete();
+            }
+            catch(Exception e)
+            {
+            }
         
-        testTimeStep(100, 100);
-        long testRun[] = new long[100];
-        for(int i =0;i<100;i++)
-        {
-            testRun[i] = runTimeTest(100, 100);
+            testTimeStep(100, 100);
+            long testRun[] = new long[100];
+            for(int i =0;i<100;i++)
+            {
+                testRun[i] = runTimeTest(100, 100);
+            }
+            System.out.println("Testing iterative search");
+            double avg=0;
+            for(int i=0;i<100;i++)
+            {
+                avg+=testRun[i];
+            }
+            System.out.print("Average is " + (avg/100) + "ms");
+            System.out.print("Test passed");
         }
-        System.out.println("Testing iterative search");
-        double avg=0;
-        for(int i=0;i<100;i++)
+        catch(Exception e)
         {
-            avg+=testRun[i];
+            System.out.println("Test failed");
         }
-        System.out.print("Average is " + (avg/100) + "ms");
     }
+
 
     public static long runTimeTest(int k,int m)
     {

@@ -1,3 +1,4 @@
+/*Priority Queue class implemented from the DSA prac tutorial for max heap*/
 class PriorityQueue
 {
     private Heap heap;
