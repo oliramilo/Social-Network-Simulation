@@ -35,10 +35,10 @@ public class UnitTestTime
         {
             Network n = new Network();
             eventFileReader.readFile("networkTS1b.txt",n);
-            eventFileReader.readFile("eventsTS1b.txt",n);
-            start = System.nanoTime();
+            eventFileReader.readFile("eventsTS1.txt",n);
+            start = System.currentTimeMillis();
             n.timeStep(100,100);
-            end = System.nanoTime();
+            end = System.currentTimeMillis();
             elapsed = end - start;
         }
         catch(IllegalArgumentException e)
@@ -55,9 +55,9 @@ public class UnitTestTime
         Network n = new Network();
         eventFileReader.readFile("NetworkDRM.txt",n);
         eventFileReader.readFile("EventsDRM2.txt",n);
-        start = System.nanoTime();
+        start = System.currentTimeMillis();
         n.timeStep(100,100);
-        end = System.nanoTime();
+        end = System.currentTimeMillis();
         elapsed = end - start;
         return elapsed;
     }
@@ -67,9 +67,9 @@ public class UnitTestTime
         Network n = new Network();
         eventFileReader.readFile("network1.txt",n);
         eventFileReader.readFile("events1.txt",n);
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         n.timeStep(100,100);
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
         long elapsed = end - start;
         return elapsed;
     }

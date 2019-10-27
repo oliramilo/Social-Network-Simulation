@@ -22,12 +22,7 @@ public class ui
         }
     }
 
-    public void usage()
-    {
-        System.out.println("Usage: ");
-    }
-
-    public boolean interactionMode()
+    private boolean interactionMode()
     {
         int select = 0;
         boolean exit = true;
@@ -100,7 +95,7 @@ public class ui
         return input;
     }
 
-    public char modeChoice()
+    /*public char modeChoice()
     {
         Scanner sc = new Scanner(System.in);
         char c = ' ';
@@ -112,7 +107,7 @@ public class ui
         {
         }
         return c;
-    }
+    }*/
 
     public String fileInput()
     {
@@ -242,14 +237,14 @@ public class ui
         }
     }
 
-    public void displayNetwork()
+    public void displayStats()
     {
         socialSim.display();
     }
 
-    public void displayStats()
+    public void displayNetwork()
     {
-        System.out.println("display stats not yet implemented");
+        socialSim.listUser();
     }
 
     public void update()
@@ -257,7 +252,11 @@ public class ui
         System.out.println("Running a time-step");
         System.out.println("Set probabilities: " + prob_foll + "% following "
                                                      + prob_like + " % like" );
+        long start = System.currentTimeMillis();
         socialSim.timeStep(prob_like, prob_foll);
+        long end = System.currentTimeMillis();
+        long elapsed = end - start;
+        System.out.println("Operation executed: " + elapsed + "ms");
     }
 
     public void save()
@@ -274,7 +273,7 @@ public class ui
         }
     }
 
-    public void addEdgeOperation()
+    private void addEdgeOperation()
     {
         char choice;
         String name;
@@ -303,7 +302,7 @@ public class ui
         }
     }
 
-    public void findUser()
+    private void findUser()
     {
         char choice;
         String name;
@@ -326,7 +325,7 @@ public class ui
         }
     }
 
-    public void newUser()
+    private void newUser()
     {
         char choice;
         String name;
@@ -357,7 +356,7 @@ public class ui
         }
     }
 
-    public void deleteOperation()
+    private void deleteOperation()
     {
         char choice;
         String name;
@@ -382,7 +381,7 @@ public class ui
         }
     }
 
-    public void deleteEdgeOperation()
+    private void deleteEdgeOperation()
     {
         char choice;
         String name;
@@ -413,7 +412,7 @@ public class ui
         }
     }
 
-    public void menuChoice()
+    private void menuChoice()
     {
         System.out.println("\n(1) Load Network");
         System.out.println("(2) Set probabilities");

@@ -3,7 +3,7 @@ public class TestNetwork
     public static void main (String [] args)
     {
         testSimulation("test.txt", 100, 100);
-        /*try
+        try
         {
             testPerson();
             System.out.println("Test passed");
@@ -23,51 +23,42 @@ public class TestNetwork
             e.printStackTrace();
         }
 
-        /*try
+        try
         {
             testRandom(10, 25);
         }
         catch(Exception e)
         {
-            e.printStackTrace();
-        }*/
+        }
 
-        /*try
+        try
         {
             testDelete();
         }
         catch(Exception e)
         {
-            e.printStackTrace();
-        }*/
-        //test(100,100);
-//        testOrder();
-       // testOrder2();
-        //testTimeStep(100, 100);
+        }
+        
+        testTimeStep(100, 100);
         long testRun[] = new long[1000];
         for(int i =0;i<1000;i++)
         {
             testRun[i] = runTimeTest(100, 100);
         }
         System.out.println("Testing iterative search");
-        for(int i=0;i<1000;i++)
-        {
-            System.out.println("Time for test " + i + ": " + testRun[i]);
-        }
         double avg=0;
         for(int i=0;i<1000;i++)
         {
             avg+=testRun[i];
         }
-        System.out.print("Average is " + (avg/1000));
+        System.out.print("Average is " + (avg/1000) + "ms");
     }
-
 
     public static long runTimeTest(int k,int m)
     {
-        long start = System.nanoTime();
+        long start = System.currentTimeMillis();
         test(k, m);
-        long end = System.nanoTime();
+        long end = System.currentTimeMillis();
         long elapsed = end - start;
         return elapsed;
     }
@@ -109,14 +100,9 @@ public class TestNetwork
         {
             System.out.println(n.find("Kira"));
         }
-        catch(Exception e)
+        catch(IllegalArgumentException e)
         {
-
-            System.out.println("Test passed, Kira was deleted");
-            n.clearFollowers();
-            n.timeStep(100,100);
-            n.listUser();
-            n.display();
+            System.out.println("Test passed, Kira was deleted");        
         }
     }
 
@@ -128,45 +114,13 @@ public class TestNetwork
         try
         {
             n.timeStep(100, 100);
-            //n.removeUser("Jen");
-            //n.update();
+            n.removeUser("Jen");
             n.listUser();
             n.listPost();
         }
-        catch(Exception e)
+        catch(IllegalArgumentException e)
         {
-            e.printStackTrace();
-        }
-    }
-
-    public static void testOrder2()
-    {
-        Network n = new Network();
-        eventFileReader.readFile("network1.txt", n);
-        eventFileReader.readFile("events1.txt", n);
-        try
-        {
-            DSAQueue q = n.timeStep(100, 100);
-            //n.removeUser("Jen");
-            n.update();
-            n.listPost();
-            n.listUser();
-            n.display();
-            eventFileReader.eventToFile("result.txt", n, q);
-            try
-            {
-                System.out.println(n.find("Jen"));
-                System.out.println("Test passed");
-            }
-            catch(Exception ex)
-            {
-                //System.out.println("Test passed");
-                //ex.printStackTrace();
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
+            System.out.println("Test failed for listing users");
         }
     }
 
@@ -177,18 +131,13 @@ public class TestNetwork
         eventFileReader.readFile("events1.txt", n);
         try
         {
-           // n.listUser();
-           //n.removeUser("Jen");
-          // n.removeUser("Kira");
-
             n.timeStep(k, m);
-          //  System.out.println("\n");
             n.listUser();
             n.listPost();
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            System.out.println("Test failed for testTimeStep()");
         }
     }
 
@@ -198,16 +147,7 @@ public class TestNetwork
         eventFileReader.readFile("networkTS1b.txt", n);
         eventFileReader.readFile("eventsTS1b.txt", n);
         try
-        {
-            //n.simulationTimeStep(file, k, m);
-            //n.timeStep(k, m);
-            //n.removeUser("Kira");
-            //n.listUser();
-            //n.listPost();
-            //n.addPost("Aughra", "Hello world!");
-            //n.simulationTimeStep("result2", k, m);
-            //n.display();
-            //n.listPost();
+        { 
             n.simulationTimeStep(file, k, m);
             n.timeStep(k, m);
             n.listPost();
@@ -217,7 +157,7 @@ public class TestNetwork
         }
         catch(Exception e)
         {
-            e.printStackTrace();
+            System.out.println("Test failed for testSimulation()");
         }
     }
 
@@ -239,6 +179,6 @@ public class TestNetwork
         eventFileReader.readFile("networkTS1b.txt", n);
         eventFileReader.readFile("eventsTS1b.txt", n);
         n.timeStep(k, m);
-        n.display();
+        //n.display();
     }
 }

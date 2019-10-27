@@ -47,7 +47,6 @@ public class Network
 
             else
             {
-                System.out.println("Error: User " + name + " already exists");
                 throw new IllegalArgumentException("Error occurred: " + Error.USER_DUP_ERR);
             }
         }
@@ -73,7 +72,6 @@ public class Network
 
         else
         {
-            System.out.println("Users: " + user1 + " cannot follow " + user2);
             throw new IllegalArgumentException("Error occurred: " + Error.USER_ERR);
         }
     }
@@ -518,12 +516,11 @@ public class Network
     /*Goes over the linkedlist of users and compares with the
      *active users in the hashtable of users, hashtable returns null if 
      *user does not exist/deleted*/
-    public void clearFollowers()
+    /*public void clearFollowers()
     {
         update();
         Person p = null;
         HashTable visited = new HashTable();
-        /*Iterate through the p*/
         for(Object iter:Users.Set())
         {
             p = (Person)iter;
@@ -533,10 +530,10 @@ public class Network
             }
             depthFirstSearch(p, visited);
         }
-    }
+    }*/
 
     /*Update to remove followers from active users, a DFS approach*/
-    private void depthFirstSearch(Person p, HashTable visited)
+    /*private void depthFirstSearch(Person p, HashTable visited)
     {
         DSAStack searchOrder = new Stack();
         searchOrder.push(p);
@@ -556,7 +553,7 @@ public class Network
             updateFollowers(p);
             updateFollowing(p);
         }
-    }
+    }*/
 
     /*Puts the items from linked list to priorityQueue return null if no items*/
     private PriorityQueue toQueue()
